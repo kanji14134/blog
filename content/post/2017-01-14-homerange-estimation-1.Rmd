@@ -1,0 +1,36 @@
+---
+categories:
+- R
+date: 2017-01-14T19:19:01+09:00
+description: ""
+tags:
+- ecology
+- homerange
+title: "homerange_1"
+author: "kanji14134"
+---
+
+###これは下書きです。
+
+野生動物の研究ではしばしば位置情報を観察、VHF発信機、GPS首輪などから取得してなんかします。
+行動圏と言われるものを推定したりです。
+今回は最先端?な手法であるBBMMとdBBMMをやってみます。
+
+もっと広く使われているのはまた今度やります。
+
+####データ
+データはMOVEBANKにおいてある、[Choi C et al. 2016](https://www.datarepository.movebank.org/handle/10255/move.510)を使います。
+CC0なので安心して使えますね。
+utm座標とローカルタイムのオプションつけてDLして置きます。
+datに格納して見てみましょう。
+```{r,message=FALSE}
+require(readr);require(dplyr);require(magrittr);require(stringr)
+dat <- read_csv("../../static/2017/01/Poultry network China (data from Choi et al. 2016).csv") %>% 
+  set_names(.,names(.) %>% str_replace_all("-","_"))
+dat %>% 
+  head()
+```
+
+
+
+

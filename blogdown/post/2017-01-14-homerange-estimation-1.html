@@ -1,0 +1,56 @@
+---
+categories:
+- R
+date: 2017-01-14T19:19:01+09:00
+description: ""
+tags:
+- ecology
+- homerange
+title: "homerange_1"
+author: "kanji14134"
+---
+
+
+<!-- BLOGDOWN-BODY-BEFORE
+
+/BLOGDOWN-BODY-BEFORE -->
+
+<div class="section level3">
+<h3>これは下書きです。</h3>
+<p>野生動物の研究ではしばしば位置情報を観察、VHF発信機、GPS首輪などから取得してなんかします。 行動圏と言われるものを推定したりです。 今回は最先端?な手法であるBBMMとdBBMMをやってみます。</p>
+<p>もっと広く使われているのはまた今度やります。</p>
+<div class="section level4">
+<h4>データ</h4>
+<p>データはMOVEBANKにおいてある、<a href="https://www.datarepository.movebank.org/handle/10255/move.510">Choi C et al. 2016</a>を使います。 CC0なので安心して使えますね。 utm座標とローカルタイムのオプションつけてDLして置きます。 datに格納して見てみましょう。</p>
+<pre class="r"><code>require(readr);require(dplyr);require(magrittr);require(stringr)</code></pre>
+<pre><code>## Warning: パッケージ &#39;readr&#39; はバージョン 3.3.1 の R の下で造られました</code></pre>
+<pre><code>## Warning: パッケージ &#39;dplyr&#39; はバージョン 3.3.1 の R の下で造られました</code></pre>
+<pre><code>## Warning: パッケージ &#39;stringr&#39; はバージョン 3.3.1 の R の下で造られました</code></pre>
+<pre class="r"><code>dat &lt;- read_csv(&quot;../../static/2017/01/Poultry network China (data from Choi et al. 2016).csv&quot;) %&gt;% 
+  set_names(.,names(.) %&gt;% str_replace_all(&quot;-&quot;,&quot;_&quot;))
+dat %&gt;% 
+  head()</code></pre>
+<pre><code>## # A tibble: 6 × 16
+##    event_id visible           timestamp location_long location_lat
+##       &lt;int&gt;   &lt;chr&gt;              &lt;dttm&gt;         &lt;dbl&gt;        &lt;dbl&gt;
+## 1 557968800    true 2015-01-09 00:02:10      116.1946     28.68327
+## 2 557968801    true 2015-01-09 11:59:39      116.1961     28.67723
+## 3 557968802    true 2015-01-09 12:59:41      116.1962     28.67732
+## 4 557968803    true 2015-01-10 00:03:16      116.1965     28.68042
+## 5 557968804    true 2015-01-10 12:00:57      116.1958     28.67707
+## 6 557968805    true 2015-01-10 13:05:41      116.1960     28.67770
+## # ... with 11 more variables: manually_marked_outlier &lt;chr&gt;,
+## #   sensor_type &lt;chr&gt;, individual_taxon_canonical_name &lt;chr&gt;,
+## #   tag_local_identifier &lt;int&gt;, individual_local_identifier &lt;int&gt;,
+## #   study_name &lt;chr&gt;, utm_easting &lt;dbl&gt;, utm_northing &lt;dbl&gt;,
+## #   utm_zone &lt;dbl&gt;, study_timezone &lt;chr&gt;, study_local_timestamp &lt;dttm&gt;</code></pre>
+</div>
+</div>
+
+
+<!-- BLOGDOWN-HEAD
+
+
+
+
+/BLOGDOWN-HEAD -->
