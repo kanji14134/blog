@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>/2017/01/multico_1/</loc>
+    <lastmod>2017-01-14T13:54:58+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/2017/01/test4/</loc>
     <lastmod>2017-01-13T21:14:49+09:00</lastmod>
   </url>
@@ -18,25 +23,25 @@
   
   <url>
     <loc>/categories/category/</loc>
-    <lastmod>2017-01-13T21:14:49+09:00</lastmod>
+    <lastmod>2017-01-14T13:54:58+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2017-01-13T21:14:49+09:00</lastmod>
+    <lastmod>2017-01-14T13:54:58+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/tag1/</loc>
-    <lastmod>2017-01-13T21:14:49+09:00</lastmod>
+    <lastmod>2017-01-14T13:54:58+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/tag2/</loc>
-    <lastmod>2017-01-13T21:14:49+09:00</lastmod>
+    <lastmod>2017-01-14T13:54:58+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -47,7 +52,7 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2017-01-13T21:14:49+09:00</lastmod>
+    <lastmod>2017-01-14T13:54:58+09:00</lastmod>
     <priority>0</priority>
   </url>
   

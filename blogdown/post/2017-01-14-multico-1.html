@@ -1,0 +1,90 @@
+---
+categories:
+- category
+date: 2017-01-14T13:54:58+09:00
+description: ""
+tags:
+- tag1
+- tag2
+title: "multico_1"
+author: "kanji14134"
+---
+
+
+<!-- BLOGDOWN-BODY-BEFORE
+
+/BLOGDOWN-BODY-BEFORE -->
+
+<div id="row" class="section level2">
+<h2>Row</h2>
+<div id="chart-1" class="section level3">
+<h3>Chart 1</h3>
+<pre><code>今持っているデータが多重共線性のあるデータで変数選択に苦しんでいます。  </code></pre>
+<p>変数選択以外の回避法を調べると、リッジ回帰なら大丈夫!みたいな記述があり、<br />
+階層ベイズでリッジ回帰的なのもできるよとのことなので、<br />
+多重共線性のあるデータで真値が推定できるかやってみたいと思います。 ?</p>
+</div>
+</div>
+<div class="section level2">
+<h2>データ生成</h2>
+<p>適当にRでつくります。が、けっこう大変でした。<br />
+x1~x4の4つの説明変数と、目的変数yを作ります。<br />
+係数の真値は全て2にしてみます。切片は平均1、分散1の正規分布からなります。</p>
+<p><span class="math display">\[
+y = 2*x1+2*x2+2*x3+2*x4+N(1,1)
+\]</span></p>
+<p><span class="math display">\[
+y_{i}=ax_{i}+b
+\]</span></p>
+<pre class="r"><code>require(dplyr);require(magrittr)</code></pre>
+<pre><code>##  要求されたパッケージ dplyr をロード中です</code></pre>
+<pre><code>## Warning: パッケージ &#39;dplyr&#39; はバージョン 3.3.1 の R の下で造られました</code></pre>
+<pre><code>## 
+##  次のパッケージを付け加えます: &#39;dplyr&#39;</code></pre>
+<pre><code>##  以下のオブジェクトは &#39;package:stats&#39; からマスクされています: 
+## 
+##      filter, lag</code></pre>
+<pre><code>##  以下のオブジェクトは &#39;package:base&#39; からマスクされています: 
+## 
+##      intersect, setdiff, setequal, union</code></pre>
+<pre><code>##  要求されたパッケージ magrittr をロード中です</code></pre>
+<pre class="r"><code>nobs &lt;- 100
+M &lt;- matrix(c(1, 0.95, 0.95, 0.95,
+             0.95, 1, 0.95, 0.95,
+             0.95, 0.95, 1, 0.95,
+             0.95, 0.95, 0.95, 1), nrow&lt;-4, ncol&lt;-4)
+L &lt;- chol(M)
+nvars &lt;- dim(L)[1]
+set.seed(0)
+L %&gt;% 
+  t() %*% #help ?&#39;%*%&#39;
+  matrix(rnorm(nvars*nobs), nrow=nvars, ncol=nobs) %&gt;% 
+  t() %&gt;% 
+  data.frame() %&gt;% 
+  set_colnames(c(&#39;x1&#39;, &#39;x2&#39;, &#39;x3&#39;, &#39;x4&#39;)) -&gt; dat
+dat %&gt;% head</code></pre>
+<pre><code>##             x1          x2         x3            x4
+## 1  1.262954285  1.09794024  1.5128002  1.5967999876
+## 2  0.414641434 -0.08693988 -0.0935600  0.0007692272
+## 3 -0.005767173  0.74537397  0.5685444  0.2226740702
+## 4 -1.147657009 -1.18065851 -1.2159001 -1.2670585379
+## 5  0.252223448 -0.03889001  0.2227375 -0.1759908437
+## 6 -0.224267885 -0.09521274 -0.1192851  0.0634592462</code></pre>
+</div>
+<div id="row-1" class="section level2">
+<h2>Row</h2>
+<div id="chart-2" class="section level3">
+<h3>Chart 2</h3>
+</div>
+<div id="chart-3" class="section level3">
+<h3>Chart 3</h3>
+</div>
+</div>
+
+
+<!-- BLOGDOWN-HEAD
+
+
+
+
+/BLOGDOWN-HEAD -->
