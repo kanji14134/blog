@@ -93,41 +93,24 @@
   <header>
     <h2 class="blog-post-title"><a href="../2017/01/multico_1/">multico_1</a></h2>
     <p class="blog-post-meta"><time datetime="2017-01-14T13:54:58&#43;09:00">Sat Jan 14, 2017</time> by kanji14134 in 
-<i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="../categories/category" rel="category tag">category</a>
+<i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="../categories/r" rel="category tag">R</a>
 
 
-<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="../tags/tag1" rel="tag">tag1</a>, <a href="../tags/tag2" rel="tag">tag2</a>
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="../tags/multico" rel="tag">multico</a>, <a href="../tags/stan" rel="tag">stan</a>
 
 </p>
   </header>
-  RowChart 1今持っているデータが多重共線性のあるデータで変数選択に苦しんでいます。 変数選択以外の回避法を調べると、リッジ回帰なら大丈夫!みたいな記述があり、
+  はじめに今持っているデータが多重共線性のあるデータで変数選択に苦しんでいます。
+変数選択以外の回避法を調べると、リッジ回帰なら大丈夫!みたいな記述があり、
 階層ベイズでリッジ回帰的なのもできるよとのことなので、
-多重共線性のあるデータで真値が推定できるかやってみたいと思います。 ?
-データ生成適当にRでつくります。が、けっこう大変でした。
+多重共線性のあるデータで真値が推定できるかやってみたいと思います。
+データ生成適当にRでつくります。が、けっこう大変でした。
 x1~x4の4つの説明変数と、目的変数yを作ります。
 係数の真値は全て2にしてみます。切片は平均1、分散1の正規分布からなります。
-\[y = 2*x1+2*x2+2*x3+2*x4+N(1,1)\]
-\[y_{i}=ax_{i}+b\]
-require(dplyr);require(magrittr)## 要求されたパッケージ dplyr をロード中です## Warning: パッケージ &#39;dplyr&#39; はバージョン 3.3.1 の R の下で造られました## ## 次のパッケージを付け加えます: &#39;dplyr&#39;## 以下のオブジェクトは &#39;package:stats&#39; からマスクされています: ## ## filter, lag## 以下のオブジェクトは &#39;package:base&#39; からマスクされています: ## ## intersect, setdiff, setequal, union## 要求されたパッケージ magrittr をロード中ですnobs &lt;- 100M &lt;- matrix(c(1, 0.95, 0.
+コードチャンクも数式がうまく出ませんので心の目で見てください。
+\[y = N(1,1) + 2*x1 + 2*x2 + 2*x3 + 2*x4\]
+require(dplyr);require(magrittr)## 要求されたパッケージ dplyr をロード中です## Warning: パッケージ &#39;dplyr&#39; はバージョン 3.3.1 の R の下で造られました## ## 次のパッケージを付け加えます: &#39;dplyr&#39;## 以下のオブジェクトは &#39;package:stats&#39; からマスクされています: ## ## filter, lag## 以下のオブジェクトは &#39;package:base&#39; からマスクされています: ## ## intersect, setdiff, setequal, union## 要求されたパッケージ magrittr をロード中ですnobs &lt;- 100M &lt;- matrix(c(1, 0.95, 0.95, 0.
   <a href='../2017/01/multico_1/'>Read more →</a>
-</article> 
-
-
-
-
-<article class="blog-post">
-  <header>
-    <h2 class="blog-post-title"><a href="../2017/01/test4/">test4</a></h2>
-    <p class="blog-post-meta"><time datetime="2017-01-13T21:14:49&#43;09:00">Fri Jan 13, 2017</time> by kanji14134 in 
-<i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="../categories/category" rel="category tag">category</a>
-
-
-<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="../tags/tag1" rel="tag">tag1</a>, <a href="../tags/tag2" rel="tag">tag2</a>
-
-</p>
-  </header>
-  
-  <a href='../2017/01/test4/'>Read more →</a>
 </article> 
 
 
@@ -149,8 +132,6 @@ require(dplyr);require(magrittr)## 要求されたパッケージ dplyr をロ�
     <ol class="list-unstyled">
       
       <li><a href="../2017/01/multico_1/">multico_1</a></li>
-      
-      <li><a href="../2017/01/test4/">test4</a></li>
       
     </ol>
   </section>

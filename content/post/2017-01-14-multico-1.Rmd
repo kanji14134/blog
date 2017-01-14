@@ -1,37 +1,27 @@
 ---
 categories:
-- category
+- R
 date: 2017-01-14T13:54:58+09:00
 description: ""
 tags:
-- tag1
-- tag2
+- multico
+- stan
 title: "multico_1"
 author: "kanji14134"
 ---
+#### はじめに
 
-Row
--------------------------------------
-    
-### Chart 1
-    今持っているデータが多重共線性のあるデータで変数選択に苦しんでいます。  
+今持っているデータが多重共線性のあるデータで変数選択に苦しんでいます。  
 変数選択以外の回避法を調べると、リッジ回帰なら大丈夫!みたいな記述があり、  
 階層ベイズでリッジ回帰的なのもできるよとのことなので、  
-多重共線性のあるデータで真値が推定できるかやってみたいと思います。 ?
+多重共線性のあるデータで真値が推定できるかやってみたいと思います。 
 
-## データ生成
+#### データ生成
 適当にRでつくります。が、けっこう大変でした。  
 x1~x4の4つの説明変数と、目的変数yを作ります。  
 係数の真値は全て2にしてみます。切片は平均1、分散1の正規分布からなります。  
-
-$$
-y = 2*x1+2*x2+2*x3+2*x4+N(1,1)
-$$
-
-$$
-y_{i}=ax_{i}+b
-$$
-
+コードチャンクも数式がうまく出ませんので心の目で見てください。  
+$$y = N(1,1) + 2*x1 + 2*x2 + 2*x3 + 2*x4$$
 
 ```{r}
 require(dplyr);require(magrittr)
@@ -48,21 +38,70 @@ L %>%
   matrix(rnorm(nvars*nobs), nrow=nvars, ncol=nobs) %>% 
   t() %>% 
   data.frame() %>% 
-  set_colnames(c('x1', 'x2', 'x3', 'x4')) -> dat
+  set_colnames(c('x1', 'x2', 'x3', 'x4')) %>% 
+  mutate(x0 = 1,
+         y = 2*x1+2*x2+2*x3+2*x4+rnorm(nobs,1,1))-> dat
 dat %>% head
 ```
    
-Row
--------------------------------------
-    
-### Chart 2
+##### VIF
+以下のコードでVIFが求められます。多分。
     
 ```{r}
-
+#cor
+cor(dat[,-c(5:7)])
+#VIF
+diag(solve(cor(dat[,-c(5:7)]))) %>% round(2)
 ```
     
-### Chart 3
+#### モデル
+階層ベイズ(係数の事前分布2種)
 
-```{r}
+##### 事前分布が無情報(デフォルト)
 
 ```
+data {
+  int<lower=0> N;
+  int<lower=0> K;
+  matrix[N, K] x;
+  vector[N] y;
+}
+parameters {
+  vector[K] beta;
+  real<lower=0> sigma;
+}
+model {
+  y ~ normal(x * beta , sigma);
+}
+```
+
+##### 事前分布が正規分布N(0,10)
+正規分布にするとRidge回帰と同じらしい。
+
+```
+//model部以外同じ
+model {
+  y ~ normal(x * beta , sigma);
+  beta ~ normal(0,10);
+  sigma ~ normal(0,100);
+}
+```
+
+#### 結果
+(ブログ移行するときにデータ無くした。)
+
+beta[1]が切片,beta[2:5]がx1:x4です。  
+beta[1]が1,beta[2:5]は2が真値でした。
+どちらのモデルもうまく推定できず、数値見てもほとんどおんなじでした。 
+
+#### まとめ
+betaの制約を見ても明らかですが、
+モデルが過学習起こして値が変なとこ飛んでかないようになるだけであって, 
+真値を正しく推定するようになるわけではないので、やっぱりちゃんと変数選択しよう!  
+次回Lasso回帰!
+
+#### 参考資料
+http://www.quantumforest.com/2011/10/simulating-data-following-a-given-covariance-structure/  
+http://breakbee.hatenablog.jp/entry/2015/03/08/041411  
+http://www.fisproject.jp/2014/08/r-regression/  
+

@@ -1,6 +1,6 @@
 # Hugo variables
 #
-baseurl = "https://example.org/"
+baseurl = "/"
 languageCode = "en-us"
 title = "統計とかのメモ"
 theme = "hugo-theme-bootstrap4-blog"
@@ -77,7 +77,7 @@ paginate = 5
   [params.social]
     # Optional, used for attribution in Twitter cards
     # See: https://dev.twitter.com/cards/types/summary-large-image
-    twitter = "username"
+    twitter = "kanji14134"
 
   [params.sharingicons]
     # Hide the sharing icons on posts? (Default: false)
