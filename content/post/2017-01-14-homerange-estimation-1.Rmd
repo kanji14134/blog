@@ -14,8 +14,7 @@ author: "kanji14134"
 
 野生動物の研究ではしばしば位置情報を観察、VHF発信機、GPS首輪などから取得してなんかします。
 行動圏と言われるものを推定したりです。
-今回は最先端?な手法であるBBMMとdBBMMをやってみます。
-
+今回は最先端?な手法である[BBMMとdBBMM](http://ecosystems.psu.edu/research/labs/walter-lab/manual/home-range-estimation/4.4-brownian-bridge-movement-models-bbmm)をやってみます。
 もっと広く使われているのはまた今度やります。
 
 ####データ
@@ -26,11 +25,18 @@ datに格納して見てみましょう。
 ```{r,message=FALSE}
 require(readr);require(dplyr);require(magrittr);require(stringr)
 dat <- read_csv("../../static/2017/01/Poultry network China (data from Choi et al. 2016).csv") %>% 
-  set_names(.,names(.) %>% str_replace_all("-","_"))
+  set_names(.,names(.) %>% str_replace_all("-","_")) %>% 
+  dplyr::select(sp = individual_taxon_canonical_name,id = individual_local_identifier,timestamp,utm_easting,utm_northing,utm_zone) 
 dat %>% 
-  head()
+  glimpse()
 ```
 
+Anas platyrhynchosとは[マガモ](https://ja.wikipedia.org/wiki/%E3%83%9E%E3%82%AC%E3%83%A2)のようです。データはアヒルかもしれません。
+1300レコードほどありますが、何個体かいそうです。確認してみましょう。
+```{r}
+dat %>% distinct(id)
+```
 
-
-
+####BBMM
+BBMMは{BBMM}パッケージで提供されており、XYとタイムラグを食わせれば良いみたいです。
+{dplyr}にもラグ関数があるのでそれを利用しましょう。

@@ -17,8 +17,7 @@ author: "kanji14134"
 
 <div class="section level3">
 <h3>これは下書きです。</h3>
-<p>野生動物の研究ではしばしば位置情報を観察、VHF発信機、GPS首輪などから取得してなんかします。 行動圏と言われるものを推定したりです。 今回は最先端?な手法であるBBMMとdBBMMをやってみます。</p>
-<p>もっと広く使われているのはまた今度やります。</p>
+<p>野生動物の研究ではしばしば位置情報を観察、VHF発信機、GPS首輪などから取得してなんかします。 行動圏と言われるものを推定したりです。 今回は最先端?な手法である<a href="http://ecosystems.psu.edu/research/labs/walter-lab/manual/home-range-estimation/4.4-brownian-bridge-movement-models-bbmm">BBMMとdBBMM</a>をやってみます。 もっと広く使われているのはまた今度やります。</p>
 <div class="section level4">
 <h4>データ</h4>
 <p>データはMOVEBANKにおいてある、<a href="https://www.datarepository.movebank.org/handle/10255/move.510">Choi C et al. 2016</a>を使います。 CC0なので安心して使えますね。 utm座標とローカルタイムのオプションつけてDLして置きます。 datに格納して見てみましょう。</p>
@@ -27,23 +26,38 @@ author: "kanji14134"
 <pre><code>## Warning: パッケージ &#39;dplyr&#39; はバージョン 3.3.1 の R の下で造られました</code></pre>
 <pre><code>## Warning: パッケージ &#39;stringr&#39; はバージョン 3.3.1 の R の下で造られました</code></pre>
 <pre class="r"><code>dat &lt;- read_csv(&quot;../../static/2017/01/Poultry network China (data from Choi et al. 2016).csv&quot;) %&gt;% 
-  set_names(.,names(.) %&gt;% str_replace_all(&quot;-&quot;,&quot;_&quot;))
+  set_names(.,names(.) %&gt;% str_replace_all(&quot;-&quot;,&quot;_&quot;)) %&gt;% 
+  dplyr::select(sp = individual_taxon_canonical_name,id = individual_local_identifier,timestamp,utm_easting,utm_northing,utm_zone) 
 dat %&gt;% 
-  head()</code></pre>
-<pre><code>## # A tibble: 6 × 16
-##    event_id visible           timestamp location_long location_lat
-##       &lt;int&gt;   &lt;chr&gt;              &lt;dttm&gt;         &lt;dbl&gt;        &lt;dbl&gt;
-## 1 557968800    true 2015-01-09 00:02:10      116.1946     28.68327
-## 2 557968801    true 2015-01-09 11:59:39      116.1961     28.67723
-## 3 557968802    true 2015-01-09 12:59:41      116.1962     28.67732
-## 4 557968803    true 2015-01-10 00:03:16      116.1965     28.68042
-## 5 557968804    true 2015-01-10 12:00:57      116.1958     28.67707
-## 6 557968805    true 2015-01-10 13:05:41      116.1960     28.67770
-## # ... with 11 more variables: manually_marked_outlier &lt;chr&gt;,
-## #   sensor_type &lt;chr&gt;, individual_taxon_canonical_name &lt;chr&gt;,
-## #   tag_local_identifier &lt;int&gt;, individual_local_identifier &lt;int&gt;,
-## #   study_name &lt;chr&gt;, utm_easting &lt;dbl&gt;, utm_northing &lt;dbl&gt;,
-## #   utm_zone &lt;dbl&gt;, study_timezone &lt;chr&gt;, study_local_timestamp &lt;dttm&gt;</code></pre>
+  glimpse()</code></pre>
+<pre><code>## Observations: 1,329
+## Variables: 6
+## $ sp           &lt;chr&gt; &quot;Anas platyrhynchos&quot;, &quot;Anas platyrhynchos&quot;, &quot;Anas...
+## $ id           &lt;int&gt; 4189, 4189, 4189, 4189, 4189, 4189, 4189, 4189, 4...
+## $ timestamp    &lt;dttm&gt; 2015-01-09 00:02:10, 2015-01-09 11:59:39, 2015-0...
+## $ utm_easting  &lt;dbl&gt; 421316.4, 421453.5, 421465.0, 421495.0, 421425.7,...
+## $ utm_northing &lt;dbl&gt; 3173161, 3172491, 3172500, 3172844, 3172473, 3172...
+## $ utm_zone     &lt;dbl&gt; 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 5...</code></pre>
+<p>Anas platyrhynchosとは<a href="https://ja.wikipedia.org/wiki/%E3%83%9E%E3%82%AC%E3%83%A2">マガモ</a>のようです。データはアヒルかもしれません。 1300レコードほどありますが、何個体かいそうです。確認してみましょう。</p>
+<pre class="r"><code>dat %&gt;% distinct(id)</code></pre>
+<pre><code>## # A tibble: 39 × 1
+##       id
+##    &lt;int&gt;
+## 1   4189
+## 2   4135
+## 3   4181
+## 4   4152
+## 5   4173
+## 6   4176
+## 7   4159
+## 8   4156
+## 9   4171
+## 10  4182
+## # ... with 29 more rows</code></pre>
+</div>
+<div id="bbmm" class="section level4">
+<h4>BBMM</h4>
+<p>BBMMは{BBMM}パッケージで提供されており、XYとタイムラグを食わせれば良いみたいです。 {dplyr}にもラグ関数があるのでそれを利用しましょう。</p>
 </div>
 </div>
 
