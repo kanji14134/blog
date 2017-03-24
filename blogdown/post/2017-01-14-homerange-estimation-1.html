@@ -2,7 +2,8 @@
 categories:
 - R
 date: 2017-01-14T19:19:01+09:00
-description: ""
+type: "post"
+draft: TRUE
 tags:
 - ecology
 - homerange
@@ -21,11 +22,8 @@ author: "kanji14134"
 <div class="section level4">
 <h4>データ</h4>
 <p>データはMOVEBANKにおいてある、<a href="https://www.datarepository.movebank.org/handle/10255/move.510">Choi C et al. 2016</a>を使います。 CC0なので安心して使えますね。 utm座標とローカルタイムのオプションつけてDLして置きます。 datに格納して見てみましょう。</p>
-<pre class="r"><code>require(readr);require(dplyr);require(magrittr);require(stringr)</code></pre>
-<pre><code>## Warning: パッケージ &#39;readr&#39; はバージョン 3.3.1 の R の下で造られました</code></pre>
-<pre><code>## Warning: パッケージ &#39;dplyr&#39; はバージョン 3.3.1 の R の下で造られました</code></pre>
-<pre><code>## Warning: パッケージ &#39;stringr&#39; はバージョン 3.3.1 の R の下で造られました</code></pre>
-<pre class="r"><code>dat &lt;- read_csv(&quot;../../static/2017/01/Poultry network China (data from Choi et al. 2016).csv&quot;) %&gt;% 
+<pre class="r"><code>require(readr);require(dplyr);require(magrittr);require(stringr)
+dat &lt;- read_csv(&quot;../../static/2017/01/Poultry network China (data from Choi et al. 2016).csv&quot;) %&gt;% 
   set_names(.,names(.) %&gt;% str_replace_all(&quot;-&quot;,&quot;_&quot;)) %&gt;% 
   dplyr::select(sp = individual_taxon_canonical_name,id = individual_local_identifier,timestamp,utm_easting,utm_northing,utm_zone) 
 dat %&gt;% 
@@ -57,7 +55,7 @@ dat %&gt;%
 </div>
 <div id="bbmm" class="section level4">
 <h4>BBMM</h4>
-<p>BBMMは{BBMM}パッケージで提供されており、XYとタイムラグを食わせれば良いみたいです。 {dplyr}にもラグ関数があるのでそれを利用しましょう。</p>
+<p>BBMMは{BBMM}パッケージで提供されており、XYとタイムラグを食わせれば良いみたいです。 {dplyr}にもラグ関数があるのでそれを利用しましょう。 ###これは下書きです。</p>
 </div>
 </div>
 

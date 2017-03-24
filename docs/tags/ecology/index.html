@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Ecology" />
+<meta property="og:description" content="RとStanとGISとかのメモ" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="/tags/ecology/" />
+
+
+<meta property="og:updated_time" content="2017-03-23T18:23:43&#43;09:00"/>
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="Ecology">
+<meta itemprop="description" content="RとStanとGISとかのメモ">
+
+
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.18.1" />
+
+
+    <link rel="canonical" href="../../tags/ecology/">
+
+    <title>統計とかのメモ</title>
+
+    <!-- combined, minified CSS -->
+    <link href="../../css/style.css" rel="stylesheet" integrity="sha384-qRVpIj9hSzsBhmO8Y7YEKF2UFra2sJQtl9V/uFKKDvy&#43;Wjh9zgTku6VRgT8YdPoD" crossorigin="anonymous">
+
+    
+    <!-- RSS 2.0 feed -->
+    <link href="../../tags/ecology/index.xml" rel="alternate" type="application/rss+xml" title="統計とかのメモ" />
+    
+
+    
+
+    
+
+    
+
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link " href="../../">Home</a>
+          
+          
+          <a class="nav-link" href="../../about/">About</a>
+          
+          
+        </nav>
+      </div>
+    </div>
+
+    <header class="blog-header">
+      <div class="container">
+        <h1 class="blog-title"><a href="../../" rel="home">統計とかのメモ</a></h1>
+        <p class="lead blog-description">RとStanとGISとかのメモ</p>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 blog-main">
+
+          
+
+
+
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="../../2017/03/maxent-3.40/">Maxent 3.40</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-03-23T18:23:43&#43;09:00">Thu Mar 23, 2017</time> by kanji14134 in 
+<i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="../../categories/r" rel="category tag">R</a>
+
+
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="../../tags/ecology" rel="tag">ecology</a>
+
+</p>
+  </header>
+  Maxentとは在データだけで分布予測をするすごいやつ。
+不在データが取りにくい野生生物を対象とする生態学などで大人気です。
+今回はバージョンアップでオープンソース化&amp;Rパッケージがでたのでその紹介です。 くわしくは元論文を読みましょう? Maxent website
+InstallRパッケージの名前注意してください。eとnが逆で、maxnetとなっています。maxentは別のやつです。
+install.packages(&quot;maxnet&quot;)Dataチュートリアルテキストが、RのコードではなくJSのGUIの操作法になっています。
+チュートリアルデータをダウンロードしてください。解凍後、ワーキングディレクトリを指定してください。
+library(maxnet)library(tidyverse)library(magrittr)library(raster)d &lt;- read_csv(&quot;samples/bradypus.csv&quot;) %&gt;%dplyr::select(-species) %&gt;% set_colnames(c(&quot;long&quot;,&quot;lat&quot;))p &lt;- SpatialPoints(d[,c(&quot;long&quot;,&quot;lat&quot;)],proj4string = CRS(&quot;+init=epsg:4326&quot;))r &lt;- stack(dir(&quot;layers&quot;,pattern = &quot;asc$&quot;,full.names = TRUE))crs(r) &lt;- CRS(&quot;+init=epsg:4326&quot;)pとrにsp&amp;rasterオブジェクトとして読み込みました。 pはノドチャミユビナマケモノBradypus variegatusの位置データです。 rは標高や気候などの説明変数のようです。プロットしてみましょう。
+plot(r[[&quot;h_dem&quot;]])plot(p,add=TRUE)plot(r)RunMaxentは不在データの代わりに対象地域内に十分な数のランダムなポイントを落とし、それを“背景データ”として使います。
+GUIのソフトの方は上のようなGISデータ形式そのまんまで解析してくれますが、
+Rパッケージの関数の方はglmnetのラッパーみたいなので、位置情報から説明変数を取ってきてあげないといけません。
+train &lt;- raster::extract(r,p) %&gt;% data.frame(.,presence = 1)set.seed(123)bg &lt;- sampleRandom(r,1000,na.rm = TRUE) %&gt;% data.frame(.,presence = 0)d &lt;- rbind(train,bg) %&gt;% filter(complete.
+  <a href='../../2017/03/maxent-3.40/'>Read more →</a>
+</article> 
+
+
+
+
+
+
+
+        </div> <!-- /.blog-main -->
+
+        <aside class="col-sm-3 offset-sm-1 blog-sidebar">
+  
+
+  
+  
+
+  <section class="sidebar-module">
+    <h4>Recent Posts</h4>
+    <ol class="list-unstyled">
+      
+      <li><a href="../../2017/03/maxent-3.40/">Maxent 3.40</a></li>
+      
+      <li><a href="../../2017/01/multico_1/">multico_1</a></li>
+      
+    </ol>
+  </section>
+
+  
+
+  
+  <section class="sidebar-module">
+    <h4>Links</h4>
+    <ol class="list-unstyled">
+      
+      <li><a href="../../"></a></li>
+      
+    </ol>
+  </section>
+  
+</aside>
+
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      Except where otherwise noted, content on this site is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution 4.0 International license</a>.
+      
+      </p>
+      <p>
+      <a href="#">Back to top</a>
+      </p>
+    </footer>
+
+  </body>
+
+</html>

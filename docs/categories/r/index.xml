@@ -6,7 +6,95 @@
     <description>Recent content in R on 統計とかのメモ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <copyright>Except where otherwise noted, content on this site is licensed under a [Creative Commons Attribution 4.0 International license](https://creativecommons.org/licenses/by-sa/4.0/).</copyright>
     <atom:link href="/categories/r/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Maxent 3.40</title>
+      <link>/2017/03/maxent-3.40/</link>
+      <pubDate>Thu, 23 Mar 2017 18:23:43 +0900</pubDate>
+      
+      <guid>/2017/03/maxent-3.40/</guid>
+      <description>&lt;!-- BLOGDOWN-BODY-BEFORE
+
+/BLOGDOWN-BODY-BEFORE --&gt;
+
+&lt;div id=&#34;maxent&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Maxentとは&lt;/h3&gt;
+&lt;p&gt;在データだけで分布予測をするすごいやつ。&lt;br /&gt;
+不在データが取りにくい野生生物を対象とする生態学などで大人気です。&lt;br /&gt;
+今回はバージョンアップでオープンソース化&amp;amp;Rパッケージがでたのでその紹介です。 くわしくは元論文を読みましょう? &lt;a href=&#34;http://biodiversityinformatics.amnh.org/open_source/maxent/&#34;&gt;Maxent website&lt;/a&gt;&lt;/p&gt;
+&lt;div id=&#34;install&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Install&lt;/h4&gt;
+&lt;p&gt;Rパッケージの名前注意してください。eとnが逆で、max&lt;strong&gt;ne&lt;/strong&gt;tとなっています。max&lt;strong&gt;en&lt;/strong&gt;tは別のやつです。&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;install.packages(&amp;quot;maxnet&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;data&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Data&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&#34;http://biodiversityinformatics.amnh.org/open_source/maxent/Maxent_tutorial2017.pdf&#34;&gt;チュートリアルテキスト&lt;/a&gt;が、RのコードではなくJSのGUIの操作法になっています。&lt;br /&gt;
+&lt;a href=&#34;http://biodiversityinformatics.amnh.org/open_source/maxent/tutorial-data.zip&#34;&gt;チュートリアルデータ&lt;/a&gt;をダウンロードしてください。解凍後、ワーキングディレクトリを指定してください。&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(maxnet)
+library(tidyverse)
+library(magrittr)
+library(raster)
+d &amp;lt;- read_csv(&amp;quot;samples/bradypus.csv&amp;quot;) %&amp;gt;%
+  dplyr::select(-species) %&amp;gt;% 
+  set_colnames(c(&amp;quot;long&amp;quot;,&amp;quot;lat&amp;quot;))
+p &amp;lt;- SpatialPoints(d[,c(&amp;quot;long&amp;quot;,&amp;quot;lat&amp;quot;)],proj4string = CRS(&amp;quot;+init=epsg:4326&amp;quot;))
+r &amp;lt;- stack(dir(&amp;quot;layers&amp;quot;,pattern = &amp;quot;asc$&amp;quot;,full.names = TRUE))
+crs(r) &amp;lt;- CRS(&amp;quot;+init=epsg:4326&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;pとrにsp&amp;amp;rasterオブジェクトとして読み込みました。 pはノドチャミユビナマケモノ&lt;em&gt;Bradypus variegatus&lt;/em&gt;の位置データです。 rは標高や気候などの説明変数のようです。プロットしてみましょう。&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(r[[&amp;quot;h_dem&amp;quot;]])
+plot(p,add=TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;#####../content/post/2017-03-23-maxent3-40_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(r)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;#####../content/post/2017-03-23-maxent3-40_files/figure-html/unnamed-chunk-4-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;run&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Run&lt;/h4&gt;
+&lt;p&gt;Maxentは不在データの代わりに対象地域内に十分な数のランダムなポイントを落とし、それを“背景データ”として使います。&lt;br /&gt;
+GUIのソフトの方は上のようなGISデータ形式そのまんまで解析してくれますが、&lt;br /&gt;
+Rパッケージの関数の方はglmnetのラッパーみたいなので、位置情報から説明変数を取ってきてあげないといけません。&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;train &amp;lt;- raster::extract(r,p) %&amp;gt;% 
+  data.frame(.,presence = 1)
+set.seed(123)
+bg &amp;lt;- sampleRandom(r,1000,na.rm = TRUE) %&amp;gt;% 
+  data.frame(.,presence = 0)
+d &amp;lt;- rbind(train,bg) %&amp;gt;% 
+  filter(complete.cases(.))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;元のラスターが陸地と気象データのNAの箇所が微妙に違うようなのでNAを丁寧に取り除きます。&lt;br /&gt;
+dにデータが揃ったので、モデルをつくって予測してみましょう。&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mod &amp;lt;- maxnet(p = d %&amp;gt;% use_series(presence),data =  d %&amp;gt;% dplyr::select(-presence))
+r %&amp;gt;% 
+  getValues() %&amp;gt;% 
+  data.frame() %&amp;gt;% 
+  mutate(n = row_number()) %&amp;gt;% 
+  filter(complete.cases(.)) -&amp;gt; r_d
+pre &amp;lt;- predict(mod,r_d %&amp;gt;% dplyr::select(-n),type=&amp;quot;cloglog&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;result&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Result&lt;/h4&gt;
+&lt;p&gt;dplyrとrasterパッケージが噛み合わなくて色々つらいですが、ラスターにMaxentの結果を戻します。&lt;br /&gt;
+preの中身は種の存在する確率となります。&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pre_r &amp;lt;- r[[1]]
+pre_r[] &amp;lt;- NA
+pre_r[r_d$n] &amp;lt;- pre
+plot(pre_r)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;#####../content/post/2017-03-23-maxent3-40_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;これでナマケモノの分布確率の地図が作れました。&lt;br /&gt;
+AUCのプロットから2値化したり、CVしたりAICだしたり寄与率をみたいと思いますが、それはつぎの機会に!&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;!-- BLOGDOWN-HEAD
+
+
+
+
+/BLOGDOWN-HEAD --&gt;
+</description>
+    </item>
     
     <item>
       <title>multico_1</title>

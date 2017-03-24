@@ -11,7 +11,7 @@
 <meta property="og:url" content="/categories/r/" />
 
 
-<meta property="og:updated_time" content="2017-01-14T13:54:58&#43;09:00"/>
+<meta property="og:updated_time" content="2017-03-23T18:23:43&#43;09:00"/>
 
 
 
@@ -91,6 +91,34 @@
 
 <article class="blog-post">
   <header>
+    <h2 class="blog-post-title"><a href="../../2017/03/maxent-3.40/">Maxent 3.40</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-03-23T18:23:43&#43;09:00">Thu Mar 23, 2017</time> by kanji14134 in 
+<i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="../../categories/r" rel="category tag">R</a>
+
+
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="../../tags/ecology" rel="tag">ecology</a>
+
+</p>
+  </header>
+  Maxentとは在データだけで分布予測をするすごいやつ。
+不在データが取りにくい野生生物を対象とする生態学などで大人気です。
+今回はバージョンアップでオープンソース化&amp;Rパッケージがでたのでその紹介です。 くわしくは元論文を読みましょう? Maxent website
+InstallRパッケージの名前注意してください。eとnが逆で、maxnetとなっています。maxentは別のやつです。
+install.packages(&quot;maxnet&quot;)Dataチュートリアルテキストが、RのコードではなくJSのGUIの操作法になっています。
+チュートリアルデータをダウンロードしてください。解凍後、ワーキングディレクトリを指定してください。
+library(maxnet)library(tidyverse)library(magrittr)library(raster)d &lt;- read_csv(&quot;samples/bradypus.csv&quot;) %&gt;%dplyr::select(-species) %&gt;% set_colnames(c(&quot;long&quot;,&quot;lat&quot;))p &lt;- SpatialPoints(d[,c(&quot;long&quot;,&quot;lat&quot;)],proj4string = CRS(&quot;+init=epsg:4326&quot;))r &lt;- stack(dir(&quot;layers&quot;,pattern = &quot;asc$&quot;,full.names = TRUE))crs(r) &lt;- CRS(&quot;+init=epsg:4326&quot;)pとrにsp&amp;rasterオブジェクトとして読み込みました。 pはノドチャミユビナマケモノBradypus variegatusの位置データです。 rは標高や気候などの説明変数のようです。プロットしてみましょう。
+plot(r[[&quot;h_dem&quot;]])plot(p,add=TRUE)plot(r)RunMaxentは不在データの代わりに対象地域内に十分な数のランダムなポイントを落とし、それを“背景データ”として使います。
+GUIのソフトの方は上のようなGISデータ形式そのまんまで解析してくれますが、
+Rパッケージの関数の方はglmnetのラッパーみたいなので、位置情報から説明変数を取ってきてあげないといけません。
+train &lt;- raster::extract(r,p) %&gt;% data.frame(.,presence = 1)set.seed(123)bg &lt;- sampleRandom(r,1000,na.rm = TRUE) %&gt;% data.frame(.,presence = 0)d &lt;- rbind(train,bg) %&gt;% filter(complete.
+  <a href='../../2017/03/maxent-3.40/'>Read more →</a>
+</article> 
+
+
+
+
+<article class="blog-post">
+  <header>
     <h2 class="blog-post-title"><a href="../../2017/01/multico_1/">multico_1</a></h2>
     <p class="blog-post-meta"><time datetime="2017-01-14T13:54:58&#43;09:00">Sat Jan 14, 2017</time> by kanji14134 in 
 <i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="../../categories/r" rel="category tag">R</a>
@@ -131,6 +159,8 @@ require(dplyr);require(magrittr)## 要求されたパッケージ dplyr をロ�
     <h4>Recent Posts</h4>
     <ol class="list-unstyled">
       
+      <li><a href="../../2017/03/maxent-3.40/">Maxent 3.40</a></li>
+      
       <li><a href="../../2017/01/multico_1/">multico_1</a></li>
       
     </ol>
@@ -143,9 +173,7 @@ require(dplyr);require(magrittr)## 要求されたパッケージ dplyr をロ�
     <h4>Links</h4>
     <ol class="list-unstyled">
       
-      <li><a href="https://example.com">Link 1</a></li>
-      
-      <li><a href="https://example.org">Link 2</a></li>
+      <li><a href="../../"></a></li>
       
     </ol>
   </section>
@@ -159,7 +187,7 @@ require(dplyr);require(magrittr)## 要求されたパッケージ dplyr をロ�
     <footer class="blog-footer">
       <p>
       
-      Blog template created by <a href="https://twitter.com/mdo">@mdo</a>, ported to Hugo by <a href='https://twitter.com/mralanorth'>@mralanorth</a>.
+      Except where otherwise noted, content on this site is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution 4.0 International license</a>.
       
       </p>
       <p>
