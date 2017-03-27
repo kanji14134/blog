@@ -47,9 +47,9 @@ crs(r) &amp;lt;- CRS(&amp;quot;+init=epsg:4326&amp;quot;)&lt;/code&gt;&lt;/pre&g
 &lt;p&gt;pとrにsp&amp;amp;rasterオブジェクトとして読み込みました。 pはノドチャミユビナマケモノ&lt;em&gt;Bradypus variegatus&lt;/em&gt;の位置データです。 rは標高や気候などの説明変数のようです。プロットしてみましょう。&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(r[[&amp;quot;h_dem&amp;quot;]])
 plot(p,add=TRUE)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/2017/03/maxent-3.40/figures/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;#####../content/post/2017-03-23-maxent3-40_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(r)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/2017/03/maxent-3.40/figures/unnamed-chunk-4-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;#####../content/post/2017-03-23-maxent3-40_files/figure-html/unnamed-chunk-4-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;run&#34; class=&#34;section level4&#34;&gt;
 &lt;h4&gt;Run&lt;/h4&gt;
@@ -81,7 +81,7 @@ preの中身は種の存在する確率となります。&lt;/p&gt;
 pre_r[] &amp;lt;- NA
 pre_r[r_d$n] &amp;lt;- pre
 plot(pre_r)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/2017/03/maxent-3.40/figures/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;#####../content/post/2017-03-23-maxent3-40_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;これでナマケモノの分布確率の地図が作れました。&lt;br /&gt;
 AUCのプロットから2値化したり、CVしたりAICだしたり寄与率をみたいと思いますが、それはつぎの機会に!&lt;/p&gt;
 &lt;/div&gt;
