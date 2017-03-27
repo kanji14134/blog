@@ -100,10 +100,6 @@ train &lt;- raster::extract(r,p) %&gt;% data.frame(.,presence = 1)set.seed(123)
 
     
 
-
-
-
-
   </head>
 
   <body>
@@ -146,7 +142,9 @@ train &lt;- raster::extract(r,p) %&gt;% data.frame(.,presence = 1)set.seed(123)
 
 </p>
   </header>
+  <!-- BLOGDOWN-BODY-BEFORE
 
+/BLOGDOWN-BODY-BEFORE -->
 
 <div id="maxent" class="section level3">
 <h3>Maxentとは</h3>
@@ -175,9 +173,9 @@ crs(r) &lt;- CRS(&quot;+init=epsg:4326&quot;)</code></pre>
 <p>pとrにsp&amp;rasterオブジェクトとして読み込みました。 pはノドチャミユビナマケモノ<em>Bradypus variegatus</em>の位置データです。 rは標高や気候などの説明変数のようです。プロットしてみましょう。</p>
 <pre class="r"><code>plot(r[[&quot;h_dem&quot;]])
 plot(p,add=TRUE)</code></pre>
-<p><img src="figures/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="#####../content/post/2017-03-23-maxent3-40_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <pre class="r"><code>plot(r)</code></pre>
-<p><img src="figures/unnamed-chunk-4-2.png" width="672" /></p>
+<p><img src="#####../content/post/2017-03-23-maxent3-40_files/figure-html/unnamed-chunk-4-2.png" width="672" /></p>
 </div>
 <div id="run" class="section level4">
 <h4>Run</h4>
@@ -209,13 +207,19 @@ preの中身は種の存在する確率となります。</p>
 pre_r[] &lt;- NA
 pre_r[r_d$n] &lt;- pre
 plot(pre_r)</code></pre>
-<p><img src="figures/unnamed-chunk-7-1.png" width="672" /></p>
+<p><img src="#####../content/post/2017-03-23-maxent3-40_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <p>これでナマケモノの分布確率の地図が作れました。<br />
 AUCのプロットから2値化したり、CVしたりAICだしたり寄与率をみたいと思いますが、それはつぎの機会に!</p>
 </div>
 </div>
 
 
+<!-- BLOGDOWN-HEAD
+
+
+
+
+/BLOGDOWN-HEAD -->
 
 
   
