@@ -7,9 +7,6 @@ tags:
 - ecology
 title: "Maxent 3.40"
 author: "kanji14134"
-output:
-  bookdown::gitbook:
-    highlight: "tango"
 ---
 
 ###Maxentとは
