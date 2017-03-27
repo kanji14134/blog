@@ -85,12 +85,12 @@ train &lt;- raster::extract(r,p) %&gt;% data.frame(.,presence = 1)set.seed(123)
 <meta name="generator" content="Hugo 0.18.1" />
 
 
-    <link rel="canonical" href="../../../2017/03/maxent-3.40/">
+    <link rel="canonical" href="/2017/03/maxent-3.40/">
 
     <title>Maxent 3.40 | 統計とかのメモ</title>
 
     <!-- combined, minified CSS -->
-    <link href="../../../css/style.css" rel="stylesheet" integrity="sha384-qRVpIj9hSzsBhmO8Y7YEKF2UFra2sJQtl9V/uFKKDvy&#43;Wjh9zgTku6VRgT8YdPoD" crossorigin="anonymous">
+    <link href="/css/style.css" rel="stylesheet" integrity="sha384-qRVpIj9hSzsBhmO8Y7YEKF2UFra2sJQtl9V/uFKKDvy&#43;Wjh9zgTku6VRgT8YdPoD" crossorigin="anonymous">
 
     
 
@@ -99,6 +99,14 @@ train &lt;- raster::extract(r,p) %&gt;% data.frame(.,presence = 1)set.seed(123)
     
 
     
+<link rel="stylesheet" href="//css/github.css">
+<script src="//js/highlight.pack.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+
+
+
 
   </head>
 
@@ -107,10 +115,10 @@ train &lt;- raster::extract(r,p) %&gt;% data.frame(.,presence = 1)set.seed(123)
     <div class="blog-masthead">
       <div class="container">
         <nav class="nav blog-nav">
-          <a class="nav-link " href="../../../">Home</a>
+          <a class="nav-link " href="/">Home</a>
           
           
-          <a class="nav-link" href="../../../about/">About</a>
+          <a class="nav-link" href="/about/">About</a>
           
           
         </nav>
@@ -119,7 +127,7 @@ train &lt;- raster::extract(r,p) %&gt;% data.frame(.,presence = 1)set.seed(123)
 
     <header class="blog-header">
       <div class="container">
-        <h1 class="blog-title"><a href="../../../" rel="home">統計とかのメモ</a></h1>
+        <h1 class="blog-title"><a href="/" rel="home">統計とかのメモ</a></h1>
         <p class="lead blog-description">RとStanとGISとかのメモ</p>
       </div>
     </header>
@@ -133,18 +141,16 @@ train &lt;- raster::extract(r,p) %&gt;% data.frame(.,presence = 1)set.seed(123)
 
 <article class="blog-post">
   <header>
-    <h2 class="blog-post-title"><a href="../../../2017/03/maxent-3.40/">Maxent 3.40</a></h2>
+    <h2 class="blog-post-title"><a href="/2017/03/maxent-3.40/">Maxent 3.40</a></h2>
     <p class="blog-post-meta"><time datetime="2017-03-23T18:23:43&#43;09:00">Thu Mar 23, 2017</time> by kanji14134 in 
-<i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="../../../categories/r" rel="category tag">R</a>
+<i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="/categories/r" rel="category tag">R</a>
 
 
-<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="../../../tags/ecology" rel="tag">ecology</a>
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/ecology" rel="tag">ecology</a>
 
 </p>
   </header>
-  <!-- BLOGDOWN-BODY-BEFORE
 
-/BLOGDOWN-BODY-BEFORE -->
 
 <div id="maxent" class="section level3">
 <h3>Maxentとは</h3>
@@ -173,9 +179,9 @@ crs(r) &lt;- CRS(&quot;+init=epsg:4326&quot;)</code></pre>
 <p>pとrにsp&amp;rasterオブジェクトとして読み込みました。 pはノドチャミユビナマケモノ<em>Bradypus variegatus</em>の位置データです。 rは標高や気候などの説明変数のようです。プロットしてみましょう。</p>
 <pre class="r"><code>plot(r[[&quot;h_dem&quot;]])
 plot(p,add=TRUE)</code></pre>
-<p><img src="#####../content/post/2017-03-23-maxent3-40_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="figures/unnamed-chunk-4-1.png" width="672" /></p>
 <pre class="r"><code>plot(r)</code></pre>
-<p><img src="#####../content/post/2017-03-23-maxent3-40_files/figure-html/unnamed-chunk-4-2.png" width="672" /></p>
+<p><img src="figures/unnamed-chunk-4-2.png" width="672" /></p>
 </div>
 <div id="run" class="section level4">
 <h4>Run</h4>
@@ -207,19 +213,13 @@ preの中身は種の存在する確率となります。</p>
 pre_r[] &lt;- NA
 pre_r[r_d$n] &lt;- pre
 plot(pre_r)</code></pre>
-<p><img src="#####../content/post/2017-03-23-maxent3-40_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p><img src="figures/unnamed-chunk-7-1.png" width="672" /></p>
 <p>これでナマケモノの分布確率の地図が作れました。<br />
 AUCのプロットから2値化したり、CVしたりAICだしたり寄与率をみたいと思いますが、それはつぎの機会に!</p>
 </div>
 </div>
 
 
-<!-- BLOGDOWN-HEAD
-
-
-
-
-/BLOGDOWN-HEAD -->
 
 
   
@@ -261,9 +261,9 @@ AUCのプロットから2値化したり、CVしたりAICだしたり寄与率�
     <h4>Recent Posts</h4>
     <ol class="list-unstyled">
       
-      <li><a href="../../../2017/03/maxent-3.40/">Maxent 3.40</a></li>
+      <li><a href="/2017/03/maxent-3.40/">Maxent 3.40</a></li>
       
-      <li><a href="../../../2017/01/multico_1/">multico_1</a></li>
+      <li><a href="/2017/01/multico_1/">multico_1</a></li>
       
     </ol>
   </section>
@@ -275,7 +275,7 @@ AUCのプロットから2値化したり、CVしたりAICだしたり寄与率�
     <h4>Links</h4>
     <ol class="list-unstyled">
       
-      <li><a href="../../../"></a></li>
+      <li><a href="/"></a></li>
       
     </ol>
   </section>
