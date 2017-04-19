@@ -5,7 +5,7 @@
     <link>/</link>
     <description>Recent content on 統計とかのメモ</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>ja-jp</language>
     <copyright>Except where otherwise noted, content on this site is licensed under a [Creative Commons Attribution 4.0 International license](https://creativecommons.org/licenses/by-sa/4.0/).</copyright>
     <lastBuildDate>Wed, 19 Apr 2017 20:30:40 +0900</lastBuildDate>
     
@@ -18,12 +18,7 @@
       <pubDate>Wed, 19 Apr 2017 20:30:40 +0900</pubDate>
       
       <guid>/2017/04/sfinstead-of-sp/</guid>
-      <description>今話題のsfパッケージ、まさか知らない人はいないでしょう??。
-今回はじめて使いましたので、簡単にメモ。
-library(dplyr)## ## 次のパッケージを付け加えます: &amp;#39;dplyr&amp;#39;## 以下のオブジェクトは &amp;#39;package:stats&amp;#39; からマスクされています: ## ## filter, lag## 以下のオブジェクトは &amp;#39;package:base&amp;#39; からマスクされています: ## ## intersect, setdiff, setequal, unionlibrary(sf)## Linking to GEOS 3.5.0, GDAL 2.1.1, proj.4 4.9.3Shapeファイルからの読み込みの例が多かったので、
-data.frameから作る場合をやってみます。 irisに適当に座標をつけます。
-この場合はst_as_sf()で簡単に作ることができます。 SP*オブジェクトよりもスッキリしてる気がします。
-iris_sf_wgs&amp;lt;- iris %&amp;gt;% mutate(x = rnorm(dim(iris)[1],140,1),y = rnorm(dim(iris)[1],35,1)) %&amp;gt;% st_as_sf(coords = c(&amp;quot;x&amp;quot;,&amp;quot;y&amp;quot;),crs = 4326)iris_sf_wgs %&amp;gt;% head()## Simple feature collection with 6 features and 5 fields## geometry type: POINT## dimension: XY## bbox: xmin: 138.</description>
+      <description>今話題のsfパッケージ、まさか知らない人はいないでしょう??。 今回はじめて使いましたので、簡単にメモ。 library(dplyr) ## ## 次のパッケージを付け加えます: &amp;#39;dplyr&amp;#39;</description>
     </item>
     
     <item>
@@ -32,17 +27,7 @@ iris_sf_wgs&amp;lt;- iris %&amp;gt;% mutate(x = rnorm(dim(iris)[1],140,1),y = r
       <pubDate>Thu, 23 Mar 2017 18:23:43 +0900</pubDate>
       
       <guid>/2017/03/maxent-3.40/</guid>
-      <description>Maxentとは在データだけで分布予測をするすごいやつ。
-不在データが取りにくい野生生物を対象とする生態学などで大人気です。
-今回はバージョンアップでオープンソース化&amp;amp;Rパッケージがでたのでその紹介です。 くわしくは元論文を読みましょう? Maxent website
-InstallRパッケージの名前注意してください。eとnが逆で、maxnetとなっています。maxentは別のやつです。
-install.packages(&amp;quot;maxnet&amp;quot;)Dataチュートリアルテキストが、RのコードではなくJSのGUIの操作法になっています。
-チュートリアルデータをダウンロードしてください。解凍後、ワーキングディレクトリを指定してください。
-library(maxnet)library(tidyverse)library(magrittr)library(raster)d &amp;lt;- read_csv(&amp;quot;samples/bradypus.csv&amp;quot;) %&amp;gt;%dplyr::select(-species) %&amp;gt;% set_colnames(c(&amp;quot;long&amp;quot;,&amp;quot;lat&amp;quot;))p &amp;lt;- SpatialPoints(d[,c(&amp;quot;long&amp;quot;,&amp;quot;lat&amp;quot;)],proj4string = CRS(&amp;quot;+init=epsg:4326&amp;quot;))r &amp;lt;- stack(dir(&amp;quot;layers&amp;quot;,pattern = &amp;quot;asc$&amp;quot;,full.names = TRUE))crs(r) &amp;lt;- CRS(&amp;quot;+init=epsg:4326&amp;quot;)pとrにsp&amp;amp;rasterオブジェクトとして読み込みました。 pはノドチャミユビナマケモノBradypus variegatusの位置データです。 rは標高や気候などの説明変数のようです。プロットしてみましょう。
-plot(r[[&amp;quot;h_dem&amp;quot;]])plot(p,add=TRUE)plot(r)RunMaxentは不在データの代わりに対象地域内に十分な数のランダムなポイントを落とし、それを“背景データ”として使います。
-GUIのソフトの方は上のようなGISデータ形式そのまんまで解析してくれますが、
-Rパッケージの関数の方はglmnetのラッパーみたいなので、位置情報から説明変数を取ってきてあげないといけません。
-train &amp;lt;- raster::extract(r,p) %&amp;gt;% data.frame(.,presence = 1)set.seed(123)bg &amp;lt;- sampleRandom(r,1000,na.rm = TRUE) %&amp;gt;% data.frame(.,presence = 0)d &amp;lt;- rbind(train,bg) %&amp;gt;% filter(complete.</description>
+      <description>Maxentとは 在データだけで分布予測をするすごいやつ。 不在データが取りにくい野生生物を対象とする生態学などで大人気です。 今回はバージョンア</description>
     </item>
     
     <item>
@@ -51,16 +36,7 @@ train &amp;lt;- raster::extract(r,p) %&amp;gt;% data.frame(.,presence = 1)set.s
       <pubDate>Sat, 14 Jan 2017 13:54:58 +0900</pubDate>
       
       <guid>/2017/01/multico_1/</guid>
-      <description>はじめに今持っているデータが多重共線性のあるデータで変数選択に苦しんでいます。
-変数選択以外の回避法を調べると、リッジ回帰なら大丈夫!みたいな記述があり、
-階層ベイズでリッジ回帰的なのもできるよとのことなので、
-多重共線性のあるデータで真値が推定できるかやってみたいと思います。
-データ生成適当にRでつくります。が、けっこう大変でした。
-x1~x4の4つの説明変数と、目的変数yを作ります。
-係数の真値は全て2にしてみます。切片は平均1、分散1の正規分布からなります。
-コードチャンクも数式がうまく出ませんので心の目で見てください。
-\[y = N(1,1) + 2*x1 + 2*x2 + 2*x3 + 2*x4\]
-require(dplyr);require(magrittr)## 要求されたパッケージ dplyr をロード中です## ## 次のパッケージを付け加えます: &amp;#39;dplyr&amp;#39;## 以下のオブジェクトは &amp;#39;package:stats&amp;#39; からマスクされています: ## ## filter, lag## 以下のオブジェクトは &amp;#39;package:base&amp;#39; からマスクされています: ## ## intersect, setdiff, setequal, union## 要求されたパッケージ magrittr をロード中ですnobs &amp;lt;- 100M &amp;lt;- matrix(c(1, 0.95, 0.95, 0.95,0.95, 1, 0.95, 0.95,0.95, 0.95, 1, 0.95,0.</description>
+      <description>はじめに 今持っているデータが多重共線性のあるデータで変数選択に苦しんでいます。 変数選択以外の回避法を調べると、リッジ回帰なら大丈夫!みたいな</description>
     </item>
     
     <item>
@@ -69,9 +45,7 @@ require(dplyr);require(magrittr)## 要求されたパッケージ dplyr をロ�
       <pubDate>Wed, 14 Sep 2016 16:33:27 +0300</pubDate>
       
       <guid>/about/</guid>
-      <description>GISとリモートセンシング技術を生態学に応用する研究を行っています。
-主に統計モデリングについて書いていきます。
-@kanji14134が書いてます。</description>
+      <description>GISとリモートセンシング技術を生態学に応用する研究を行っています。 主に統計モデリングについて書いていきます。 @kanji14134が書いて</description>
     </item>
     
   </channel>

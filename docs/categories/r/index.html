@@ -109,12 +109,7 @@
 
 </p>
   </header>
-  今話題のsfパッケージ、まさか知らない人はいないでしょう??。
-今回はじめて使いましたので、簡単にメモ。
-library(dplyr)## ## 次のパッケージを付け加えます: &#39;dplyr&#39;## 以下のオブジェクトは &#39;package:stats&#39; からマスクされています: ## ## filter, lag## 以下のオブジェクトは &#39;package:base&#39; からマスクされています: ## ## intersect, setdiff, setequal, unionlibrary(sf)## Linking to GEOS 3.5.0, GDAL 2.1.1, proj.4 4.9.3Shapeファイルからの読み込みの例が多かったので、
-data.frameから作る場合をやってみます。 irisに適当に座標をつけます。
-この場合はst_as_sf()で簡単に作ることができます。 SP*オブジェクトよりもスッキリしてる気がします。
-iris_sf_wgs&lt;- iris %&gt;% mutate(x = rnorm(dim(iris)[1],140,1),y = rnorm(dim(iris)[1],35,1)) %&gt;% st_as_sf(coords = c(&quot;x&quot;,&quot;y&quot;),crs = 4326)iris_sf_wgs %&gt;% head()## Simple feature collection with 6 features and 5 fields## geometry type: POINT## dimension: XY## bbox: xmin: 138.
+  今話題のsfパッケージ、まさか知らない人はいないでしょう??。 今回はじめて使いましたので、簡単にメモ。 library(dplyr) ## ## 次のパッケージを付け加えます: &#39;dplyr&#39;
   <a href='../../2017/04/sfinstead-of-sp/'>Read more →</a>
 </article> 
 
@@ -134,17 +129,7 @@ iris_sf_wgs&lt;- iris %&gt;% mutate(x = rnorm(dim(iris)[1],140,1),y = rnorm(dim
 
 </p>
   </header>
-  Maxentとは在データだけで分布予測をするすごいやつ。
-不在データが取りにくい野生生物を対象とする生態学などで大人気です。
-今回はバージョンアップでオープンソース化&amp;Rパッケージがでたのでその紹介です。 くわしくは元論文を読みましょう? Maxent website
-InstallRパッケージの名前注意してください。eとnが逆で、maxnetとなっています。maxentは別のやつです。
-install.packages(&quot;maxnet&quot;)Dataチュートリアルテキストが、RのコードではなくJSのGUIの操作法になっています。
-チュートリアルデータをダウンロードしてください。解凍後、ワーキングディレクトリを指定してください。
-library(maxnet)library(tidyverse)library(magrittr)library(raster)d &lt;- read_csv(&quot;samples/bradypus.csv&quot;) %&gt;%dplyr::select(-species) %&gt;% set_colnames(c(&quot;long&quot;,&quot;lat&quot;))p &lt;- SpatialPoints(d[,c(&quot;long&quot;,&quot;lat&quot;)],proj4string = CRS(&quot;+init=epsg:4326&quot;))r &lt;- stack(dir(&quot;layers&quot;,pattern = &quot;asc$&quot;,full.names = TRUE))crs(r) &lt;- CRS(&quot;+init=epsg:4326&quot;)pとrにsp&amp;rasterオブジェクトとして読み込みました。 pはノドチャミユビナマケモノBradypus variegatusの位置データです。 rは標高や気候などの説明変数のようです。プロットしてみましょう。
-plot(r[[&quot;h_dem&quot;]])plot(p,add=TRUE)plot(r)RunMaxentは不在データの代わりに対象地域内に十分な数のランダムなポイントを落とし、それを“背景データ”として使います。
-GUIのソフトの方は上のようなGISデータ形式そのまんまで解析してくれますが、
-Rパッケージの関数の方はglmnetのラッパーみたいなので、位置情報から説明変数を取ってきてあげないといけません。
-train &lt;- raster::extract(r,p) %&gt;% data.frame(.,presence = 1)set.seed(123)bg &lt;- sampleRandom(r,1000,na.rm = TRUE) %&gt;% data.frame(.,presence = 0)d &lt;- rbind(train,bg) %&gt;% filter(complete.
+  Maxentとは 在データだけで分布予測をするすごいやつ。 不在データが取りにくい野生生物を対象とする生態学などで大人気です。 今回はバージョンア
   <a href='../../2017/03/maxent-3.40/'>Read more →</a>
 </article> 
 
@@ -164,16 +149,7 @@ train &lt;- raster::extract(r,p) %&gt;% data.frame(.,presence = 1)set.seed(123)
 
 </p>
   </header>
-  はじめに今持っているデータが多重共線性のあるデータで変数選択に苦しんでいます。
-変数選択以外の回避法を調べると、リッジ回帰なら大丈夫!みたいな記述があり、
-階層ベイズでリッジ回帰的なのもできるよとのことなので、
-多重共線性のあるデータで真値が推定できるかやってみたいと思います。
-データ生成適当にRでつくります。が、けっこう大変でした。
-x1~x4の4つの説明変数と、目的変数yを作ります。
-係数の真値は全て2にしてみます。切片は平均1、分散1の正規分布からなります。
-コードチャンクも数式がうまく出ませんので心の目で見てください。
-\[y = N(1,1) + 2*x1 + 2*x2 + 2*x3 + 2*x4\]
-require(dplyr);require(magrittr)## 要求されたパッケージ dplyr をロード中です## ## 次のパッケージを付け加えます: &#39;dplyr&#39;## 以下のオブジェクトは &#39;package:stats&#39; からマスクされています: ## ## filter, lag## 以下のオブジェクトは &#39;package:base&#39; からマスクされています: ## ## intersect, setdiff, setequal, union## 要求されたパッケージ magrittr をロード中ですnobs &lt;- 100M &lt;- matrix(c(1, 0.95, 0.95, 0.95,0.95, 1, 0.95, 0.95,0.95, 0.95, 1, 0.95,0.
+  はじめに 今持っているデータが多重共線性のあるデータで変数選択に苦しんでいます。 変数選択以外の回避法を調べると、リッジ回帰なら大丈夫!みたいな
   <a href='../../2017/01/multico_1/'>Read more →</a>
 </article> 
 

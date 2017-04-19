@@ -109,12 +109,7 @@
 
 </p>
   </header>
-  今話題のsfパッケージ、まさか知らない人はいないでしょう??。
-今回はじめて使いましたので、簡単にメモ。
-library(dplyr)## ## 次のパッケージを付け加えます: &#39;dplyr&#39;## 以下のオブジェクトは &#39;package:stats&#39; からマスクされています: ## ## filter, lag## 以下のオブジェクトは &#39;package:base&#39; からマスクされています: ## ## intersect, setdiff, setequal, unionlibrary(sf)## Linking to GEOS 3.5.0, GDAL 2.1.1, proj.4 4.9.3Shapeファイルからの読み込みの例が多かったので、
-data.frameから作る場合をやってみます。 irisに適当に座標をつけます。
-この場合はst_as_sf()で簡単に作ることができます。 SP*オブジェクトよりもスッキリしてる気がします。
-iris_sf_wgs&lt;- iris %&gt;% mutate(x = rnorm(dim(iris)[1],140,1),y = rnorm(dim(iris)[1],35,1)) %&gt;% st_as_sf(coords = c(&quot;x&quot;,&quot;y&quot;),crs = 4326)iris_sf_wgs %&gt;% head()## Simple feature collection with 6 features and 5 fields## geometry type: POINT## dimension: XY## bbox: xmin: 138.
+  今話題のsfパッケージ、まさか知らない人はいないでしょう??。 今回はじめて使いましたので、簡単にメモ。 library(dplyr) ## ## 次のパッケージを付け加えます: &#39;dplyr&#39;
   <a href='../../2017/04/sfinstead-of-sp/'>Read more →</a>
 </article> 
 

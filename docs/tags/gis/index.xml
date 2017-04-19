@@ -5,7 +5,7 @@
     <link>/tags/gis/</link>
     <description>Recent content in Gis on 統計とかのメモ</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>ja-jp</language>
     <copyright>Except where otherwise noted, content on this site is licensed under a [Creative Commons Attribution 4.0 International license](https://creativecommons.org/licenses/by-sa/4.0/).</copyright>
     <lastBuildDate>Wed, 19 Apr 2017 20:30:40 +0900</lastBuildDate>
     
@@ -18,12 +18,7 @@
       <pubDate>Wed, 19 Apr 2017 20:30:40 +0900</pubDate>
       
       <guid>/2017/04/sfinstead-of-sp/</guid>
-      <description>今話題のsfパッケージ、まさか知らない人はいないでしょう??。
-今回はじめて使いましたので、簡単にメモ。
-library(dplyr)## ## 次のパッケージを付け加えます: &amp;#39;dplyr&amp;#39;## 以下のオブジェクトは &amp;#39;package:stats&amp;#39; からマスクされています: ## ## filter, lag## 以下のオブジェクトは &amp;#39;package:base&amp;#39; からマスクされています: ## ## intersect, setdiff, setequal, unionlibrary(sf)## Linking to GEOS 3.5.0, GDAL 2.1.1, proj.4 4.9.3Shapeファイルからの読み込みの例が多かったので、
-data.frameから作る場合をやってみます。 irisに適当に座標をつけます。
-この場合はst_as_sf()で簡単に作ることができます。 SP*オブジェクトよりもスッキリしてる気がします。
-iris_sf_wgs&amp;lt;- iris %&amp;gt;% mutate(x = rnorm(dim(iris)[1],140,1),y = rnorm(dim(iris)[1],35,1)) %&amp;gt;% st_as_sf(coords = c(&amp;quot;x&amp;quot;,&amp;quot;y&amp;quot;),crs = 4326)iris_sf_wgs %&amp;gt;% head()## Simple feature collection with 6 features and 5 fields## geometry type: POINT## dimension: XY## bbox: xmin: 138.</description>
+      <description>今話題のsfパッケージ、まさか知らない人はいないでしょう??。 今回はじめて使いましたので、簡単にメモ。 library(dplyr) ## ## 次のパッケージを付け加えます: &amp;#39;dplyr&amp;#39;</description>
     </item>
     
   </channel>
