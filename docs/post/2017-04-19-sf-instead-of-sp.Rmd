@@ -1,0 +1,52 @@
+---
+categories:
+- R
+date: 2017-04-19T20:30:40+09:00
+description: ""
+draft: true
+tags:
+- GIS
+type: "post"
+title: "sf,instead of sp"
+author: "kanji14134"
+---
+
+今話題の**sf**パッケージ、まさか知らない人はいないでしょう[??](http://notchained.hatenablog.com/entry/2017/01/06/213333)。  
+今回はじめて使いましたので、簡単にメモ。
+```{r}
+library(dplyr)
+library(sf)
+```
+
+Shapeファイルからの読み込みの例が多かったので、  
+data.frameから作る場合をやってみます。
+irisに適当に座標をつけます。  
+この場合はst_as_sf()で簡単に作ることができます。
+SP*オブジェクトよりもスッキリしてる気がします。
+```{r}
+iris_sf_wgs<- iris %>% 
+  mutate(x = rnorm(dim(iris)[1],140,1),
+         y = rnorm(dim(iris)[1],35,1)) %>% 
+  st_as_sf(coords = c("x","y"),
+           crs = 4326)
+iris_sf_wgs %>% 
+  head()
+```
+
+geometryに座標が入りました。postGISみたいなやつですね。
+投影変換はst_transformです。crsに直接EPSGコードをぶち込めます。
+```{r}
+iris_sf_wgs %>% 
+  st_transform(crs = 32654) %>% 
+  head()
+```
+
+plotでの描画はこの通り。
+```{r}
+plot(iris_sf_wgs %>% select(Species))
+```
+
+
+ggplotで扱うにはまだ開発中である[geom_sf](https://dcl-2017-01.github.io/curriculum/notes/spatial-vis.html)があります。
+
+Happy mapping!

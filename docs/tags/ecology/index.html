@@ -37,16 +37,16 @@
 <meta name="generator" content="Hugo 0.18.1" />
 
 
-    <link rel="canonical" href="../../tags/ecology/">
+    <link rel="canonical" href="/tags/ecology/">
 
     <title>統計とかのメモ</title>
 
     <!-- combined, minified CSS -->
-    <link href="../../css/style.css" rel="stylesheet" integrity="sha384-qRVpIj9hSzsBhmO8Y7YEKF2UFra2sJQtl9V/uFKKDvy&#43;Wjh9zgTku6VRgT8YdPoD" crossorigin="anonymous">
+    <link href="/css/style.css" rel="stylesheet" integrity="sha384-qRVpIj9hSzsBhmO8Y7YEKF2UFra2sJQtl9V/uFKKDvy&#43;Wjh9zgTku6VRgT8YdPoD" crossorigin="anonymous">
 
     
     <!-- RSS 2.0 feed -->
-    <link href="../../tags/ecology/index.xml" rel="alternate" type="application/rss+xml" title="統計とかのメモ" />
+    <link href="/tags/ecology/index.xml" rel="alternate" type="application/rss+xml" title="統計とかのメモ" />
     
 
     
@@ -61,10 +61,10 @@
     <div class="blog-masthead">
       <div class="container">
         <nav class="nav blog-nav">
-          <a class="nav-link " href="../../">Home</a>
+          <a class="nav-link " href="/">Home</a>
           
           
-          <a class="nav-link" href="../../about/">About</a>
+          <a class="nav-link" href="/about/">About</a>
           
           
         </nav>
@@ -73,7 +73,7 @@
 
     <header class="blog-header">
       <div class="container">
-        <h1 class="blog-title"><a href="../../" rel="home">統計とかのメモ</a></h1>
+        <h1 class="blog-title"><a href="/" rel="home">統計とかのメモ</a></h1>
         <p class="lead blog-description">RとStanとGISとかのメモ</p>
       </div>
     </header>
@@ -90,12 +90,12 @@
 
 <article class="blog-post">
   <header>
-    <h2 class="blog-post-title"><a href="../../2017/03/maxent-3.40/">Maxent 3.40</a></h2>
+    <h2 class="blog-post-title"><a href="/2017/03/maxent-3.40/">Maxent 3.40</a></h2>
     <p class="blog-post-meta"><time datetime="2017-03-23T18:23:43&#43;09:00">Thu Mar 23, 2017</time> by kanji14134 in 
-<i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="../../categories/r" rel="category tag">R</a>
+<i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="/categories/r" rel="category tag">R</a>
 
 
-<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="../../tags/ecology" rel="tag">ecology</a>
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/ecology" rel="tag">ecology</a>
 
 </p>
   </header>
@@ -110,7 +110,7 @@ plot(r[[&quot;h_dem&quot;]])plot(p,add=TRUE)plot(r)RunMaxentは不在デー
 GUIのソフトの方は上のようなGISデータ形式そのまんまで解析してくれますが、
 Rパッケージの関数の方はglmnetのラッパーみたいなので、位置情報から説明変数を取ってきてあげないといけません。
 train &lt;- raster::extract(r,p) %&gt;% data.frame(.,presence = 1)set.seed(123)bg &lt;- sampleRandom(r,1000,na.rm = TRUE) %&gt;% data.frame(.,presence = 0)d &lt;- rbind(train,bg) %&gt;% filter(complete.
-  <a href='../../2017/03/maxent-3.40/'>Read more →</a>
+  <a href='/2017/03/maxent-3.40/'>Read more →</a>
 </article> 
 
 
@@ -131,9 +131,9 @@ train &lt;- raster::extract(r,p) %&gt;% data.frame(.,presence = 1)set.seed(123)
     <h4>Recent Posts</h4>
     <ol class="list-unstyled">
       
-      <li><a href="../../2017/03/maxent-3.40/">Maxent 3.40</a></li>
+      <li><a href="/2017/03/maxent-3.40/">Maxent 3.40</a></li>
       
-      <li><a href="../../2017/01/multico_1/">multico_1</a></li>
+      <li><a href="/2017/01/multico_1/">multico_1</a></li>
       
     </ol>
   </section>
@@ -145,7 +145,7 @@ train &lt;- raster::extract(r,p) %&gt;% data.frame(.,presence = 1)set.seed(123)
     <h4>Links</h4>
     <ol class="list-unstyled">
       
-      <li><a href="../../"></a></li>
+      <li><a href="/"></a></li>
       
     </ol>
   </section>

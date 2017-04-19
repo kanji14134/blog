@@ -11,6 +11,7 @@ paginate = 5
 #googleAnalytics = "UA-123-45"
 #disqusShortname = "XYW"
 
+publishDir = "docs"
 [permalinks]
   post = "/:year/:month/:title/"
   page = "/:slug/"
