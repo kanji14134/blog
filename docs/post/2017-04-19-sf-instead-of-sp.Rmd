@@ -3,7 +3,7 @@ categories:
 - R
 date: 2017-04-19T20:30:40+09:00
 description: ""
-draft: true
+draft: false
 tags:
 - GIS
 type: "post"
