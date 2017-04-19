@@ -4,12 +4,16 @@
   <head>
     {{ partial "head-meta.html" . }}
 
+    {{ block "schema-dot-org" . }}
+      <!-- schema.org metadata differs for Nodes and Pages -->
+    {{ end }}
+
     <link rel="canonical" href="{{ .Permalink }}">
 
     <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
 
     {{ "<!-- combined, minified CSS -->" | safeHTML }}
-    <link href="{{ .Site.BaseURL }}css/style.css" rel="stylesheet" integrity="{{ .Site.Data.sri.style}}" crossorigin="anonymous">
+    <link href="{{ .Site.BaseURL }}css/style.css" rel="stylesheet"{{ if not .Site.Params.disable_sri }} integrity="{{ .Site.Data.sri.style}}" crossorigin="anonymous"{{ end }}>
 
     {{ if .RSSLink }}
     {{ "<!-- RSS 2.0 feed -->" | safeHTML }}
@@ -31,13 +35,16 @@
       <div class="container">
         <nav class="nav blog-nav">
           <a class="nav-link {{ if .IsHome }}active{{ end }}" href="{{ .Site.BaseURL | absLangURL }}">{{ i18n "home" }}</a>
+          {{- $currentURL := .URL | absLangURL -}}
           {{ if .Site.Params.custom_navbar }}
           {{ range .Site.Menus.navbar }}
-          <a class="nav-link" href="{{.URL | absURL }}">{{ .Name }}</a>
+          {{ $menuURL := .URL | absLangURL }}
+          <a class="nav-link{{ if eq $menuURL $currentURL }} active{{ end }}" href="{{.URL | absURL }}">{{ .Name }}</a>
           {{ end }}
           {{ else }}
           {{ range where .Site.RegularPages "Type" "!=" "post" }}
-          <a class="nav-link" href="{{ .Permalink }}">{{ .Title }}</a>
+          {{ $permalinkURL := .Permalink | absLangURL }}
+          <a class="nav-link{{ if eq $permalinkURL $currentURL }} active{{ end }}" href="{{ .Permalink }}">{{ .Title }}</a>
           {{ end }}
           {{ end }}
         </nav>
