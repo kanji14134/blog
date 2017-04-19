@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>/2017/04/sfinstead-of-sp/</loc>
+    <lastmod>2017-04-19T20:30:40+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/2017/03/maxent-3.40/</loc>
     <lastmod>2017-03-23T18:23:43+09:00</lastmod>
   </url>
@@ -28,6 +33,12 @@
   </url>
   
   <url>
+    <loc>/tags/gis/</loc>
+    <lastmod>2017-04-19T20:30:40+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/tags/multico/</loc>
     <lastmod>2017-01-14T13:54:58+09:00</lastmod>
     <priority>0</priority>
@@ -35,13 +46,13 @@
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2017-03-23T18:23:43+09:00</lastmod>
+    <lastmod>2017-04-19T20:30:40+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/categories/r/</loc>
-    <lastmod>2017-03-23T18:23:43+09:00</lastmod>
+    <lastmod>2017-04-19T20:30:40+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -58,7 +69,7 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2017-03-23T18:23:43+09:00</lastmod>
+    <lastmod>2017-04-19T20:30:40+09:00</lastmod>
     <priority>0</priority>
   </url>
   

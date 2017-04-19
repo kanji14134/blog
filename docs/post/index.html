@@ -11,7 +11,7 @@
 <meta property="og:url" content="/post/" />
 
 
-<meta property="og:updated_time" content="2017-03-23T18:23:43&#43;09:00"/>
+<meta property="og:updated_time" content="2017-04-19T20:30:40&#43;09:00"/>
 
 
 
@@ -37,16 +37,16 @@
 <meta name="generator" content="Hugo 0.18.1" />
 
 
-    <link rel="canonical" href="../post/">
+    <link rel="canonical" href="/post/">
 
     <title>統計とかのメモ</title>
 
     <!-- combined, minified CSS -->
-    <link href="../css/style.css" rel="stylesheet" integrity="sha384-qRVpIj9hSzsBhmO8Y7YEKF2UFra2sJQtl9V/uFKKDvy&#43;Wjh9zgTku6VRgT8YdPoD" crossorigin="anonymous">
+    <link href="/css/style.css" rel="stylesheet" integrity="sha384-qRVpIj9hSzsBhmO8Y7YEKF2UFra2sJQtl9V/uFKKDvy&#43;Wjh9zgTku6VRgT8YdPoD" crossorigin="anonymous">
 
     
     <!-- RSS 2.0 feed -->
-    <link href="../post/index.xml" rel="alternate" type="application/rss+xml" title="統計とかのメモ" />
+    <link href="/post/index.xml" rel="alternate" type="application/rss+xml" title="統計とかのメモ" />
     
 
     
@@ -54,7 +54,6 @@
     
 
     
-
   </head>
 
   <body>
@@ -62,10 +61,10 @@
     <div class="blog-masthead">
       <div class="container">
         <nav class="nav blog-nav">
-          <a class="nav-link " href="../">Home</a>
+          <a class="nav-link " href="/">Home</a>
           
           
-          <a class="nav-link" href="../about/">About</a>
+          <a class="nav-link" href="/about/">About</a>
           
           
         </nav>
@@ -74,7 +73,7 @@
 
     <header class="blog-header">
       <div class="container">
-        <h1 class="blog-title"><a href="../" rel="home">統計とかのメモ</a></h1>
+        <h1 class="blog-title"><a href="/" rel="home">統計とかのメモ</a></h1>
         <p class="lead blog-description">RとStanとGISとかのメモ</p>
       </div>
     </header>
@@ -91,12 +90,35 @@
 
 <article class="blog-post">
   <header>
-    <h2 class="blog-post-title"><a href="../2017/03/maxent-3.40/">Maxent 3.40</a></h2>
+    <h2 class="blog-post-title"><a href="/2017/04/sfinstead-of-sp/">sf,instead of sp</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-04-19T20:30:40&#43;09:00">Wed Apr 19, 2017</time> by kanji14134 in 
+<i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="/categories/r" rel="category tag">R</a>
+
+
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/gis" rel="tag">GIS</a>
+
+</p>
+  </header>
+  今話題のsfパッケージ、まさか知らない人はいないでしょう??。
+今回はじめて使いましたので、簡単にメモ。
+library(dplyr)## ## 次のパッケージを付け加えます: &#39;dplyr&#39;## 以下のオブジェクトは &#39;package:stats&#39; からマスクされています: ## ## filter, lag## 以下のオブジェクトは &#39;package:base&#39; からマスクされています: ## ## intersect, setdiff, setequal, unionlibrary(sf)## Linking to GEOS 3.5.0, GDAL 2.1.1, proj.4 4.9.3Shapeファイルからの読み込みの例が多かったので、
+data.frameから作る場合をやってみます。 irisに適当に座標をつけます。
+この場合はst_as_sf()で簡単に作ることができます。 SP*オブジェクトよりもスッキリしてる気がします。
+iris_sf_wgs&lt;- iris %&gt;% mutate(x = rnorm(dim(iris)[1],140,1),y = rnorm(dim(iris)[1],35,1)) %&gt;% st_as_sf(coords = c(&quot;x&quot;,&quot;y&quot;),crs = 4326)iris_sf_wgs %&gt;% head()## Simple feature collection with 6 features and 5 fields## geometry type: POINT## dimension: XY## bbox: xmin: 138.
+  <a href='/2017/04/sfinstead-of-sp/'>Read more →</a>
+</article> 
+
+
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="/2017/03/maxent-3.40/">Maxent 3.40</a></h2>
     <p class="blog-post-meta"><time datetime="2017-03-23T18:23:43&#43;09:00">Thu Mar 23, 2017</time> by kanji14134 in 
-<i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="../categories/r" rel="category tag">R</a>
+<i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="/categories/r" rel="category tag">R</a>
 
 
-<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="../tags/ecology" rel="tag">ecology</a>
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/ecology" rel="tag">ecology</a>
 
 </p>
   </header>
@@ -111,7 +133,7 @@ plot(r[[&quot;h_dem&quot;]])plot(p,add=TRUE)plot(r)RunMaxentは不在デー
 GUIのソフトの方は上のようなGISデータ形式そのまんまで解析してくれますが、
 Rパッケージの関数の方はglmnetのラッパーみたいなので、位置情報から説明変数を取ってきてあげないといけません。
 train &lt;- raster::extract(r,p) %&gt;% data.frame(.,presence = 1)set.seed(123)bg &lt;- sampleRandom(r,1000,na.rm = TRUE) %&gt;% data.frame(.,presence = 0)d &lt;- rbind(train,bg) %&gt;% filter(complete.
-  <a href='../2017/03/maxent-3.40/'>Read more →</a>
+  <a href='/2017/03/maxent-3.40/'>Read more →</a>
 </article> 
 
 
@@ -119,12 +141,12 @@ train &lt;- raster::extract(r,p) %&gt;% data.frame(.,presence = 1)set.seed(123)
 
 <article class="blog-post">
   <header>
-    <h2 class="blog-post-title"><a href="../2017/01/multico_1/">multico_1</a></h2>
+    <h2 class="blog-post-title"><a href="/2017/01/multico_1/">multico_1</a></h2>
     <p class="blog-post-meta"><time datetime="2017-01-14T13:54:58&#43;09:00">Sat Jan 14, 2017</time> by kanji14134 in 
-<i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="../categories/r" rel="category tag">R</a>
+<i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="/categories/r" rel="category tag">R</a>
 
 
-<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="../tags/multico" rel="tag">multico</a>, <a href="../tags/stan" rel="tag">stan</a>
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/multico" rel="tag">multico</a>, <a href="/tags/stan" rel="tag">stan</a>
 
 </p>
   </header>
@@ -138,7 +160,7 @@ x1~x4の4つの説明変数と、目的変数yを作ります。
 コードチャンクも数式がうまく出ませんので心の目で見てください。
 \[y = N(1,1) + 2*x1 + 2*x2 + 2*x3 + 2*x4\]
 require(dplyr);require(magrittr)## 要求されたパッケージ dplyr をロード中です## Warning: パッケージ &#39;dplyr&#39; はバージョン 3.3.1 の R の下で造られました## ## 次のパッケージを付け加えます: &#39;dplyr&#39;## 以下のオブジェクトは &#39;package:stats&#39; からマスクされています: ## ## filter, lag## 以下のオブジェクトは &#39;package:base&#39; からマスクされています: ## ## intersect, setdiff, setequal, union## 要求されたパッケージ magrittr をロード中ですnobs &lt;- 100M &lt;- matrix(c(1, 0.95, 0.95, 0.
-  <a href='../2017/01/multico_1/'>Read more →</a>
+  <a href='/2017/01/multico_1/'>Read more →</a>
 </article> 
 
 
@@ -159,9 +181,11 @@ require(dplyr);require(magrittr)## 要求されたパッケージ dplyr をロ�
     <h4>Recent Posts</h4>
     <ol class="list-unstyled">
       
-      <li><a href="../2017/03/maxent-3.40/">Maxent 3.40</a></li>
+      <li><a href="/2017/04/sfinstead-of-sp/">sf,instead of sp</a></li>
       
-      <li><a href="../2017/01/multico_1/">multico_1</a></li>
+      <li><a href="/2017/03/maxent-3.40/">Maxent 3.40</a></li>
+      
+      <li><a href="/2017/01/multico_1/">multico_1</a></li>
       
     </ol>
   </section>
@@ -173,7 +197,7 @@ require(dplyr);require(magrittr)## 要求されたパッケージ dplyr をロ�
     <h4>Links</h4>
     <ol class="list-unstyled">
       
-      <li><a href="../"></a></li>
+      <li><a href="/"></a></li>
       
     </ol>
   </section>
