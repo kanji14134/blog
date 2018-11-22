@@ -1,0 +1,12 @@
+---
+categories:
+- R
+date: 2018-11-22T20:28:01+09:00
+type: "post"
+tags:
+- ecology
+title: "test"
+author: "kanji14134"
+---
+
+update

@@ -23,7 +23,7 @@ install.packages("maxnet")
 ```
 
 ```{r,echo=FALSE}
-knitr::opts_knit$set(root.dir = "C:/Users/gisadmin/Downloads/tutorial-data")
+#knitr::opts_knit$set(root.dir = "C:/Users/gisadmin/Downloads/tutorial-data")
 ```
 
 ####Data

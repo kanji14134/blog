@@ -1,76 +1,49 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/2017/04/sfinstead-of-sp/</loc>
-    <lastmod>2017-04-19T20:30:40+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/2017/03/maxent-3.40/</loc>
+    <loc>https://kanji14134.github.io/2017/03/maxent-3.40/</loc>
     <lastmod>2017-03-23T18:23:43+09:00</lastmod>
   </url>
   
   <url>
-    <loc>/2017/01/multico_1/</loc>
-    <lastmod>2017-01-14T13:54:58+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/about/</loc>
+    <loc>https://kanji14134.github.io/about/</loc>
     <lastmod>2016-09-14T16:33:27+03:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/</loc>
+    <loc>https://kanji14134.github.io/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/ecology/</loc>
+    <loc>https://kanji14134.github.io/tags/ecology/</loc>
     <lastmod>2017-03-23T18:23:43+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/gis/</loc>
-    <lastmod>2017-04-19T20:30:40+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/multico/</loc>
-    <lastmod>2017-01-14T13:54:58+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/post/</loc>
-    <lastmod>2017-04-19T20:30:40+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/r/</loc>
-    <lastmod>2017-04-19T20:30:40+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/stan/</loc>
-    <lastmod>2017-01-14T13:54:58+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
+    <loc>https://kanji14134.github.io/post/</loc>
     <lastmod>2017-03-23T18:23:43+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/</loc>
-    <lastmod>2017-04-19T20:30:40+09:00</lastmod>
+    <loc>https://kanji14134.github.io/categories/r/</loc>
+    <lastmod>2017-03-23T18:23:43+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kanji14134.github.io/tags/</loc>
+    <lastmod>2017-03-23T18:23:43+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kanji14134.github.io/</loc>
+    <lastmod>2017-03-23T18:23:43+09:00</lastmod>
     <priority>0</priority>
   </url>
   
