@@ -13,7 +13,7 @@ data.frameから作る場合をやってみます。 irisに適当に座標を�
 この場合はst_as_sf()で簡単に作ることができます。 SP*オブジェクトよりもスッキリしてる気がします。
 iris_sf_wgs&lt;- iris %&gt;% mutate(x = rnorm(dim(iris)[1],140,1), y = rnorm(dim(iris)[1],35,1)) %&gt;% st_as_sf(coords = c(&quot;x&quot;,&quot;y&quot;), crs = 4326) iris_sf_wgs %&gt;% head() ## Simple feature collection with 6 features and 5 fields ## geometry type: POINT ## dimension: XY ## bbox: xmin: 138." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/2017/04/sfinstead-of-sp/" /><meta property="article:published_time" content="2017-04-19T20:30:40&#43;09:00"/>
+<meta property="og:url" content="/blog/2017/04/sfinstead-of-sp/" /><meta property="article:published_time" content="2017-04-19T20:30:40&#43;09:00"/>
 <meta property="article:modified_time" content="2017-04-19T20:30:40&#43;09:00"/>
 
 <meta name="twitter:card" content="summary"/>
@@ -33,7 +33,7 @@ iris_sf_wgs&lt;- iris %&gt;% mutate(x = rnorm(dim(iris)[1],140,1), y = rnorm(dim
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "sf,instead of sp",
-  "url": "/2017/04/sfinstead-of-sp/",
+  "url": "/blog/2017/04/sfinstead-of-sp/",
   "wordCount": "327",
   "datePublished": "2017-04-19T20:30:40&#43;09:00",
   "dateModified": "2017-04-19T20:30:40&#43;09:00",
@@ -47,12 +47,12 @@ iris_sf_wgs&lt;- iris %&gt;% mutate(x = rnorm(dim(iris)[1],140,1), y = rnorm(dim
 
 
 
-    <link rel="canonical" href="/2017/04/sfinstead-of-sp/">
+    <link rel="canonical" href="/blog/2017/04/sfinstead-of-sp/">
 
     <title>sf,instead of sp | Test v4 Blog</title>
 
     <!-- combined, minified CSS -->
-    <link href="/css/style.css" rel="stylesheet" integrity="sha384-6&#43;EGfPoOzk/n2DVJSlglKT8TV1TgIMvVcKI73IZgBswLasPBn94KommV6ilJqCXE" crossorigin="anonymous">
+    <link href="/blog/css/style.css" rel="stylesheet" integrity="sha384-6&#43;EGfPoOzk/n2DVJSlglKT8TV1TgIMvVcKI73IZgBswLasPBn94KommV6ilJqCXE" crossorigin="anonymous">
 
     
 
@@ -70,7 +70,7 @@ iris_sf_wgs&lt;- iris %&gt;% mutate(x = rnorm(dim(iris)[1],140,1), y = rnorm(dim
     <div class="blog-masthead">
       <div class="container">
         <nav class="nav blog-nav">
-          <a class="nav-link " href="/">Home</a>
+          <a class="nav-link " href="/blog/">Home</a>
         </nav>
       </div>
     </div>
@@ -80,7 +80,7 @@ iris_sf_wgs&lt;- iris %&gt;% mutate(x = rnorm(dim(iris)[1],140,1), y = rnorm(dim
     
     <header class="blog-header">
       <div class="container">
-        <h1 class="blog-title"><a href="/" rel="home">Test v4 Blog</a></h1>
+        <h1 class="blog-title"><a href="/blog/" rel="home">Test v4 Blog</a></h1>
         <p class="lead blog-description">A simple Hugo theme based on the Bootstrap v4 blog example.</p>
       </div>
     </header>
@@ -97,12 +97,12 @@ iris_sf_wgs&lt;- iris %&gt;% mutate(x = rnorm(dim(iris)[1],140,1), y = rnorm(dim
 
 <article class="blog-post">
   <header>
-    <h2 class="blog-post-title"><a href="/2017/04/sfinstead-of-sp/">sf,instead of sp</a></h2>
+    <h2 class="blog-post-title"><a href="/blog/2017/04/sfinstead-of-sp/">sf,instead of sp</a></h2>
     <p class="blog-post-meta"><time datetime="2017-04-19T20:30:40&#43;09:00">Wed Apr 19, 2017</time> by kanji14134 in 
-<i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="/categories/r" rel="category tag">R</a>
+<i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="/blog/categories/r" rel="category tag">R</a>
 
 
-<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/gis" rel="tag">GIS</a>
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/blog/tags/gis" rel="tag">GIS</a>
 
 </p>
   </header>
@@ -198,10 +198,10 @@ iris_sf_wgs %&gt;%
     <section>
     <h4>Share</h4>
     <nav class="nav sharing-icons">
-      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=%2f2017%2f04%2fsfinstead-of-sp%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
-      <a class="nav-item" href="https://plus.google.com/share?url=%2f2017%2f04%2fsfinstead-of-sp%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
-      <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2f2017%2f04%2fsfinstead-of-sp%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
-      <a class="nav-item" href="https://twitter.com/home?status=%2f2017%2f04%2fsfinstead-of-sp%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
+      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=%2fblog%2f2017%2f04%2fsfinstead-of-sp%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://plus.google.com/share?url=%2fblog%2f2017%2f04%2fsfinstead-of-sp%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fblog%2f2017%2f04%2fsfinstead-of-sp%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://twitter.com/home?status=%2fblog%2f2017%2f04%2fsfinstead-of-sp%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
     </nav>
   </section>
 
@@ -231,15 +231,15 @@ iris_sf_wgs %&gt;%
     <ol class="list-unstyled">
 
 
-<li><a href="/2014/09/creating-a-new-theme/">Creating a New Theme</a></li>
+<li><a href="/blog/2014/09/creating-a-new-theme/">Creating a New Theme</a></li>
 
-<li><a href="/2014/03/migrate-to-hugo-from-jekyll/">Migrate to Hugo from Jekyll</a></li>
+<li><a href="/blog/2014/03/migrate-to-hugo-from-jekyll/">Migrate to Hugo from Jekyll</a></li>
 
-<li><a href="/2017/04/sfinstead-of-sp/">sf,instead of sp</a></li>
+<li><a href="/blog/2017/04/sfinstead-of-sp/">sf,instead of sp</a></li>
 
-<li><a href="/2017/03/maxent-3.40/">Maxent 3.40</a></li>
+<li><a href="/blog/2017/03/maxent-3.40/">Maxent 3.40</a></li>
 
-<li><a href="/2014/04/hugo-template-primer/">(Hu)go Template Primer</a></li>
+<li><a href="/blog/2014/04/hugo-template-primer/">(Hu)go Template Primer</a></li>
 
     </ol>
   </section>

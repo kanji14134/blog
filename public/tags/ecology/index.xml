@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ecology on Test v4 Blog</title>
-    <link>/tags/ecology/</link>
+    <link>/blog/tags/ecology/</link>
     <description>Recent content in Ecology on Test v4 Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 23 Mar 2017 18:23:43 +0900</lastBuildDate>
     
-	<atom:link href="/tags/ecology/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/blog/tags/ecology/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Maxent 3.40</title>
-      <link>/2017/03/maxent-3.40/</link>
+      <link>/blog/2017/03/maxent-3.40/</link>
       <pubDate>Thu, 23 Mar 2017 18:23:43 +0900</pubDate>
       
-      <guid>/2017/03/maxent-3.40/</guid>
+      <guid>/blog/2017/03/maxent-3.40/</guid>
       <description>###Maxentとは 在データだけで分布予測をするすごいやつ。
 不在データが取りにくい野生生物を対象とする生態学などで大人気です。
 今回はバージョンアップでオープンソース化&amp;amp;Rパッケージがでたのでその紹介です。 くわしくは元論文を読みましょう? Maxent website
