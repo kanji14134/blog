@@ -9,10 +9,11 @@ tags:
 type: "post"
 title: "sf 3.4"
 author: "kanji14134"
+summary: "A custom summary of my post."
 ---
-
 今話題の**sf**パッケージ、まさか知らない人はいないでしょう[??](http://notchained.hatenablog.com/entry/2017/01/06/213333)。  
 今回はじめて使いましたので、簡単にメモ。
+
 ```{r}
 library(dplyr)
 library(sf)

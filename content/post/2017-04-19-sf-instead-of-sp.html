@@ -9,6 +9,7 @@ tags:
 type: "post"
 title: "sf 3.4"
 author: "kanji14134"
+summary: "A custom summary of my post."
 ---
 
 
@@ -33,7 +34,7 @@ data.frameから作る場合をやってみます。
 irisに適当に座標をつけます。<br />
 この場合はst_as_sf()で簡単に作ることができます。
 SP*オブジェクトよりもスッキリしてる気がします。</p>
-<pre class="r"><code>iris_sf_wgs&lt;- iris %&gt;% 
+<pre class="r"><code>iris_sf_wgs &lt;- iris %&gt;% 
   mutate(x = rnorm(dim(iris)[1],140,1),
          y = rnorm(dim(iris)[1],35,1)) %&gt;% 
   st_as_sf(coords = c(&quot;x&quot;,&quot;y&quot;),
@@ -43,7 +44,7 @@ iris_sf_wgs %&gt;%
 <pre><code>## Simple feature collection with 6 features and 5 fields
 ## geometry type:  POINT
 ## dimension:      XY
-## bbox:           xmin: 138.1644 ymin: 34.5519 xmax: 141.5308 ymax: 35.44487
+## bbox:           xmin: 138.3621 ymin: 34.27538 xmax: 141.6452 ymax: 37.27793
 ## epsg (SRID):    4326
 ## proj4string:    +proj=longlat +datum=WGS84 +no_defs
 ##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
@@ -54,12 +55,12 @@ iris_sf_wgs %&gt;%
 ## 5          5.0         3.6          1.4         0.2  setosa
 ## 6          5.4         3.9          1.7         0.4  setosa
 ##                    geometry
-## 1 POINT (139.2588 35.04225)
-## 2 POINT (140.1447 34.65733)
-## 3 POINT (139.0195 35.02414)
-## 4  POINT (141.5308 34.5519)
-## 5 POINT (138.1644 35.41765)
-## 6 POINT (138.5936 35.44487)</code></pre>
+## 1 POINT (139.1401 34.63563)
+## 2 POINT (140.6594 36.59837)
+## 3 POINT (141.6452 34.27538)
+## 4 POINT (138.3621 35.02643)
+## 5 POINT (140.7798 34.83437)
+## 6 POINT (139.6502 37.27793)</code></pre>
 <p>geometryに座標が入りました。postGISみたいなやつですね。
 投影変換はst_transformです。crsに直接EPSGコードをぶち込めます。</p>
 <pre class="r"><code>iris_sf_wgs %&gt;% 
@@ -68,7 +69,7 @@ iris_sf_wgs %&gt;%
 <pre><code>## Simple feature collection with 6 features and 5 fields
 ## geometry type:  POINT
 ## dimension:      XY
-## bbox:           xmin: 242533.4 ymin: 3823480 xmax: 548696.9 ymax: 3925040
+## bbox:           xmin: 259336.7 ymin: 3792879 xmax: 559386.1 ymax: 4126558
 ## epsg (SRID):    32654
 ## proj4string:    +proj=utm +zone=54 +datum=WGS84 +units=m +no_defs
 ##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
@@ -79,14 +80,14 @@ iris_sf_wgs %&gt;%
 ## 5          5.0         3.6          1.4         0.2  setosa
 ## 6          5.4         3.9          1.7         0.4  setosa
 ##                   geometry
-## 1 POINT (341188.1 3879114)
-## 2 POINT (421625.6 3835376)
-## 3 POINT (319317.6 3877512)
-## 4 POINT (548696.9 3823480)
-## 5 POINT (242533.4 3923054)
-## 6 POINT (281582.4 3925040)</code></pre>
+## 1 POINT (329525.4 3834210)
+## 2 POINT (469532.6 4050373)
+## 3 POINT (559386.1 3792879)
+## 4 POINT (259336.7 3879155)
+## 5 POINT (479862.1 3854698)
+## 6   POINT (380332 4126558)</code></pre>
 <p>plotでの描画はこの通り。</p>
 <pre class="r"><code>plot(iris_sf_wgs %&gt;% select(Species))</code></pre>
-<p><img src="/blog/post/2017-04-19-sf-instead-of-sp_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="/post/2017-04-19-sf-instead-of-sp_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <p>ggplotで扱うにはまだ開発中である<a href="https://dcl-2017-01.github.io/curriculum/notes/spatial-vis.html">geom_sf</a>があります。</p>
 <p>Happy mapping!</p>

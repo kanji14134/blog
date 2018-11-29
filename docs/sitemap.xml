@@ -3,52 +3,52 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/blog/2017/04/sf-3.4/</loc>
+    <loc>/2017/04/sf-3.4/</loc>
     <lastmod>2017-04-19T20:30:40+09:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2017/03/maxent-3.40/</loc>
+    <loc>/2017/03/maxent-3.40/</loc>
     <lastmod>2017-03-23T18:23:43+09:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/categories/</loc>
+    <loc>/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/blog/tags/ecology/</loc>
-    <lastmod>2017-03-23T18:23:43+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/blog/tags/gis/</loc>
-    <lastmod>2017-04-19T20:30:40+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/blog/post/</loc>
-    <lastmod>2017-04-19T20:30:40+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/blog/categories/r/</loc>
-    <lastmod>2017-04-19T20:30:40+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/blog/tags/</loc>
+    <loc>/tags/ecology/</loc>
     <lastmod>2017-03-23T18:23:43+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/blog/</loc>
+    <loc>/tags/gis/</loc>
+    <lastmod>2017-04-19T20:30:40+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2017-04-19T20:30:40+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/r/</loc>
+    <lastmod>2017-04-19T20:30:40+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2017-03-23T18:23:43+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/</loc>
     <lastmod>2017-04-19T20:30:40+09:00</lastmod>
     <priority>0</priority>
   </url>

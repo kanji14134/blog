@@ -1,7 +1,8 @@
 # Hugo variables
 #
+hasCJKLanguage = true
 baseurl = "https://kanji14134.github.io/blog/"
-languageCode = "en-us"
+languageCode = "ja-jp"
 title = "kh-blog"
 theme = "hugo-theme-bootstrap4-blog"
 # number of posts to show on home/category/tag pages (Default: 10)
@@ -11,6 +12,8 @@ paginate = 5
 #googleAnalytics = "UA-123-45"
 #disqusShortname = "XYW"
 publishDir = "docs"
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
+relativeurls = true
 [permalinks]
   post = "/:year/:month/:title/"
   page = "/:slug/"
@@ -30,7 +33,10 @@ publishDir = "docs"
 
 # Theme variables
 #
+
 [params]
+  summaryLength = 10
+  
   # Site author
   author = "Kanji Hashimoto"
 
