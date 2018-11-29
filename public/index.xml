@@ -6,31 +6,10 @@
     <description>Recent content on Test v4 Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 28 Sep 2014 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 19 Apr 2017 20:30:40 +0900</lastBuildDate>
     
 	<atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Creating a New Theme</title>
-      <link>/blog/2014/09/creating-a-new-theme/</link>
-      <pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate>
-      
-      <guid>/blog/2014/09/creating-a-new-theme/</guid>
-      <description>Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.
-We&amp;rsquo;ll start with creating a new site with a very basic template.</description>
-    </item>
-    
-    <item>
-      <title>Migrate to Hugo from Jekyll</title>
-      <link>/blog/2014/03/migrate-to-hugo-from-jekyll/</link>
-      <pubDate>Mon, 10 Mar 2014 00:00:00 +0000</pubDate>
-      
-      <guid>/blog/2014/03/migrate-to-hugo-from-jekyll/</guid>
-      <description>Move static content to static Jekyll has a rule that any directory not starting with _ will be copied as-is to the _site output. Hugo keeps all static content under static. You should therefore move it all there. With Jekyll, something that looked like
-▾ &amp;lt;root&amp;gt;/ ▾ images/ logo.png  should become
-▾ &amp;lt;root&amp;gt;/ ▾ static/ ▾ images/ logo.png  Additionally, you&amp;rsquo;ll want any files that should reside at the root (such as CNAME) to be moved to static.</description>
-    </item>
     
     <item>
       <title>sf,instead of sp</title>
@@ -43,7 +22,7 @@ We&amp;rsquo;ll start with creating a new site with a very basic template.</desc
 library(dplyr) ## Warning: パッケージ &amp;#39;dplyr&amp;#39; はバージョン 3.4.2 の R の下で造られました ## ## 次のパッケージを付け加えます: &amp;#39;dplyr&amp;#39; ## 以下のオブジェクトは &amp;#39;package:stats&amp;#39; からマスクされています: ## ## filter, lag ## 以下のオブジェクトは &amp;#39;package:base&amp;#39; からマスクされています: ## ## intersect, setdiff, setequal, union library(sf) ## Warning: パッケージ &amp;#39;sf&amp;#39; はバージョン 3.4.4 の R の下で造られました ## Linking to GEOS 3.6.1, GDAL 2.1.3, PROJ 4.9.3 Shapeファイルからの読み込みの例が多かったので、
 data.frameから作る場合をやってみます。 irisに適当に座標をつけます。
 この場合はst_as_sf()で簡単に作ることができます。 SP*オブジェクトよりもスッキリしてる気がします。
-iris_sf_wgs&amp;lt;- iris %&amp;gt;% mutate(x = rnorm(dim(iris)[1],140,1), y = rnorm(dim(iris)[1],35,1)) %&amp;gt;% st_as_sf(coords = c(&amp;quot;x&amp;quot;,&amp;quot;y&amp;quot;), crs = 4326) iris_sf_wgs %&amp;gt;% head() ## Simple feature collection with 6 features and 5 fields ## geometry type: POINT ## dimension: XY ## bbox: xmin: 138.</description>
+iris_sf_wgs&amp;lt;- iris %&amp;gt;% mutate(x = rnorm(dim(iris)[1],140,1), y = rnorm(dim(iris)[1],35,1)) %&amp;gt;% st_as_sf(coords = c(&amp;quot;x&amp;quot;,&amp;quot;y&amp;quot;), crs = 4326) iris_sf_wgs %&amp;gt;% head() ## Simple feature collection with 6 features and 5 fields ## geometry type: POINT ## dimension: XY ## bbox: xmin: 139.</description>
     </item>
     
     <item>
@@ -63,30 +42,6 @@ plot(r[[&amp;quot;h_dem&amp;quot;]]) plot(p,add=TRUE) plot(r) ####Run Maxentは�
 GUIのソフトの方は上のようなGISデータ形式そのまんまで解析してくれますが、
 Rパッケージの関数の方はglmnetのラッパーみたいなので、位置情報から説明変数を取ってきてあげないといけません。
 train &amp;lt;- raster::extract(r,p) %&amp;gt;% data.frame(.,presence = 1) set.seed(123) bg &amp;lt;- sampleRandom(r,1000,na.rm = TRUE) %&amp;gt;% data.frame(.,presence = 0) d &amp;lt;- rbind(train,bg) %&amp;gt;% filter(complete.</description>
-    </item>
-    
-    <item>
-      <title>(Hu)go Template Primer</title>
-      <link>/blog/2014/04/hugo-template-primer/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>/blog/2014/04/hugo-template-primer/</guid>
-      <description>Hugo uses the excellent go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in go templates.
-This document is a brief primer on using go templates.</description>
-    </item>
-    
-    <item>
-      <title>Getting Started with Hugo</title>
-      <link>/blog/2014/04/getting-started-with-hugo/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>/blog/2014/04/getting-started-with-hugo/</guid>
-      <description>Step 1. Install Hugo Goto hugo releases and download the appropriate version for your os and architecture.
-Save it somewhere specific as we will be using it in the next step.
-More complete instructions are available at installing hugo
-Step 2. Build the Docs Hugo has its own example site which happens to also be the documentation site you are reading right now.
-Follow the following steps:
- Clone the hugo repository Go into the repo Run hugo in server mode and build the docs Open your browser to http://localhost:1313  Corresponding pseudo commands:</description>
     </item>
     
   </channel>

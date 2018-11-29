@@ -146,9 +146,9 @@ pはノドチャミユビナマケモノ<em>Bradypus variegatus</em>の位置デ
 rは標高や気候などの説明変数のようです。プロットしてみましょう。</p>
 <pre class="r"><code>plot(r[[&quot;h_dem&quot;]])
 plot(p,add=TRUE)</code></pre>
-<p><img src="/post/2017-03-23-maxent3-40_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="/blog/post/2017-03-23-maxent3-40_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <pre class="r"><code>plot(r)</code></pre>
-<p><img src="/post/2017-03-23-maxent3-40_files/figure-html/unnamed-chunk-4-2.png" width="672" /></p>
+<p><img src="/blog/post/2017-03-23-maxent3-40_files/figure-html/unnamed-chunk-4-2.png" width="672" /></p>
 <p>####Run
 Maxentは不在データの代わりに対象地域内に十分な数のランダムなポイントを落とし、それを“背景データ”として使います。<br />
 GUIのソフトの方は上のようなGISデータ形式そのまんまで解析してくれますが、<br />
@@ -176,7 +176,7 @@ preの中身は種の存在する確率となります。</p>
 pre_r[] &lt;- NA
 pre_r[r_d$n] &lt;- pre
 plot(pre_r)</code></pre>
-<p><img src="/post/2017-03-23-maxent3-40_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p><img src="/blog/post/2017-03-23-maxent3-40_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <p>これでナマケモノの分布確率の地図が作れました。<br />
 AUCのプロットから2値化したり、CVしたりAICだしたり寄与率をみたいと思いますが、それはつぎの機会に!</p>
 
@@ -224,15 +224,11 @@ AUCのプロットから2値化したり、CVしたりAICだしたり寄与率�
     <ol class="list-unstyled">
 
 
-<li><a href="/blog/2014/09/creating-a-new-theme/">Creating a New Theme</a></li>
-
-<li><a href="/blog/2014/03/migrate-to-hugo-from-jekyll/">Migrate to Hugo from Jekyll</a></li>
-
 <li><a href="/blog/2017/04/sfinstead-of-sp/">sf,instead of sp</a></li>
 
 <li><a href="/blog/2017/03/maxent-3.40/">Maxent 3.40</a></li>
 
-<li><a href="/blog/2014/04/hugo-template-primer/">(Hu)go Template Primer</a></li>
+<li><a href="/blog/post/">Posts</a></li>
 
     </ol>
   </section>
