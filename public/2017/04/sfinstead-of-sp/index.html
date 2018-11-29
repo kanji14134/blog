@@ -11,7 +11,7 @@
 library(dplyr) ## Warning: パッケージ &#39;dplyr&#39; はバージョン 3.4.2 の R の下で造られました ## ## 次のパッケージを付け加えます: &#39;dplyr&#39; ## 以下のオブジェクトは &#39;package:stats&#39; からマスクされています: ## ## filter, lag ## 以下のオブジェクトは &#39;package:base&#39; からマスクされています: ## ## intersect, setdiff, setequal, union library(sf) ## Warning: パッケージ &#39;sf&#39; はバージョン 3.4.4 の R の下で造られました ## Linking to GEOS 3.6.1, GDAL 2.1.3, PROJ 4.9.3 Shapeファイルからの読み込みの例が多かったので、
 data.frameから作る場合をやってみます。 irisに適当に座標をつけます。
 この場合はst_as_sf()で簡単に作ることができます。 SP*オブジェクトよりもスッキリしてる気がします。
-iris_sf_wgs&lt;- iris %&gt;% mutate(x = rnorm(dim(iris)[1],140,1), y = rnorm(dim(iris)[1],35,1)) %&gt;% st_as_sf(coords = c(&quot;x&quot;,&quot;y&quot;), crs = 4326) iris_sf_wgs %&gt;% head() ## Simple feature collection with 6 features and 5 fields ## geometry type: POINT ## dimension: XY ## bbox: xmin: 139." />
+iris_sf_wgs&lt;- iris %&gt;% mutate(x = rnorm(dim(iris)[1],140,1), y = rnorm(dim(iris)[1],35,1)) %&gt;% st_as_sf(coords = c(&quot;x&quot;,&quot;y&quot;), crs = 4326) iris_sf_wgs %&gt;% head() ## Simple feature collection with 6 features and 5 fields ## geometry type: POINT ## dimension: XY ## bbox: xmin: 138." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/blog/2017/04/sfinstead-of-sp/" /><meta property="article:published_time" content="2017-04-19T20:30:40&#43;09:00"/>
 <meta property="article:modified_time" content="2017-04-19T20:30:40&#43;09:00"/>
@@ -23,7 +23,7 @@ iris_sf_wgs&lt;- iris %&gt;% mutate(x = rnorm(dim(iris)[1],140,1), y = rnorm(dim
 library(dplyr) ## Warning: パッケージ &#39;dplyr&#39; はバージョン 3.4.2 の R の下で造られました ## ## 次のパッケージを付け加えます: &#39;dplyr&#39; ## 以下のオブジェクトは &#39;package:stats&#39; からマスクされています: ## ## filter, lag ## 以下のオブジェクトは &#39;package:base&#39; からマスクされています: ## ## intersect, setdiff, setequal, union library(sf) ## Warning: パッケージ &#39;sf&#39; はバージョン 3.4.4 の R の下で造られました ## Linking to GEOS 3.6.1, GDAL 2.1.3, PROJ 4.9.3 Shapeファイルからの読み込みの例が多かったので、
 data.frameから作る場合をやってみます。 irisに適当に座標をつけます。
 この場合はst_as_sf()で簡単に作ることができます。 SP*オブジェクトよりもスッキリしてる気がします。
-iris_sf_wgs&lt;- iris %&gt;% mutate(x = rnorm(dim(iris)[1],140,1), y = rnorm(dim(iris)[1],35,1)) %&gt;% st_as_sf(coords = c(&quot;x&quot;,&quot;y&quot;), crs = 4326) iris_sf_wgs %&gt;% head() ## Simple feature collection with 6 features and 5 fields ## geometry type: POINT ## dimension: XY ## bbox: xmin: 139."/>
+iris_sf_wgs&lt;- iris %&gt;% mutate(x = rnorm(dim(iris)[1],140,1), y = rnorm(dim(iris)[1],35,1)) %&gt;% st_as_sf(coords = c(&quot;x&quot;,&quot;y&quot;), crs = 4326) iris_sf_wgs %&gt;% head() ## Simple feature collection with 6 features and 5 fields ## geometry type: POINT ## dimension: XY ## bbox: xmin: 138."/>
 <meta name="generator" content="Hugo 0.51" />
 
 
@@ -139,7 +139,7 @@ iris_sf_wgs %&gt;%
 <pre><code>## Simple feature collection with 6 features and 5 fields
 ## geometry type:  POINT
 ## dimension:      XY
-## bbox:           xmin: 139.3648 ymin: 33.1943 xmax: 140.6225 ymax: 35.82743
+## bbox:           xmin: 138.211 ymin: 35.03571 xmax: 140.4712 ymax: 37.06841
 ## epsg (SRID):    4326
 ## proj4string:    +proj=longlat +datum=WGS84 +no_defs
 ##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
@@ -150,12 +150,12 @@ iris_sf_wgs %&gt;%
 ## 5          5.0         3.6          1.4         0.2  setosa
 ## 6          5.4         3.9          1.7         0.4  setosa
 ##                    geometry
-## 1 POINT (140.4471 35.15025)
-## 2  POINT (139.3648 33.1943)
-## 3 POINT (140.6225 34.46131)
-## 4 POINT (139.3849 35.82743)
-## 5  POINT (140.2397 34.6181)
-## 6 POINT (139.4481 34.43058)</code></pre>
+## 1 POINT (140.4712 35.03571)
+## 2   POINT (138.211 35.2506)
+## 3   POINT (139.3591 35.059)
+## 4 POINT (139.1296 35.28759)
+## 5  POINT (139.1897 36.7123)
+## 6 POINT (139.1313 37.06841)</code></pre>
 <p>geometryに座標が入りました。postGISみたいなやつですね。
 投影変換はst_transformです。crsに直接EPSGコードをぶち込めます。</p>
 <pre class="r"><code>iris_sf_wgs %&gt;% 
@@ -164,7 +164,7 @@ iris_sf_wgs %&gt;%
 <pre><code>## Simple feature collection with 6 features and 5 fields
 ## geometry type:  POINT
 ## dimension:      XY
-## bbox:           xmin: 347575.3 ymin: 3674019 xmax: 465325.2 ymax: 3966012
+## bbox:           xmin: 246242.7 ymin: 3877131 xmax: 451771.1 ymax: 4104095
 ## epsg (SRID):    32654
 ## proj4string:    +proj=utm +zone=54 +datum=WGS84 +units=m +no_defs
 ##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
@@ -175,12 +175,12 @@ iris_sf_wgs %&gt;%
 ## 5          5.0         3.6          1.4         0.2  setosa
 ## 6          5.4         3.9          1.7         0.4  setosa
 ##                   geometry
-## 1 POINT (449635.2 3889845)
-## 2 POINT (347575.3 3674019)
-## 3 POINT (465325.2 3813371)
-## 4 POINT (354112.4 3966012)
-## 5 POINT (430295.6 3830956)
-## 6 POINT (357403.1 3810992)</code></pre>
+## 1 POINT (451771.1 3877131)
+## 2 POINT (246242.7 3904400)
+## 3 POINT (350367.7 3880816)
+## 4 POINT (329915.4 3906540)
+## 5 POINT (338311.3 4064485)
+## 6   POINT (333870 4104095)</code></pre>
 <p>plotでの描画はこの通り。</p>
 <pre class="r"><code>plot(iris_sf_wgs %&gt;% select(Species))</code></pre>
 <p><img src="/blog/post/2017-04-19-sf-instead-of-sp_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
