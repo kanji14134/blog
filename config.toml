@@ -77,7 +77,7 @@ relativeurls = true
 
   [params.sidebar]
     # Optional about block for sidebar (can be Markdown)
-    #about = "A simple Hugo theme based on the [Bootstrap v4 blog example](http://v4-alpha.getbootstrap.com/examples/blog/)."
+    about = "[@kanji14134](https://twitter.com/kanji14134/)のメモ帳です。"
 
     # How many posts to show on the sidebar (Default: 5)
     #num_recent_posts = 2
