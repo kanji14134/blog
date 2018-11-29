@@ -2,7 +2,7 @@
 #
 baseurl = "https://kanji14134.github.io/blog/"
 languageCode = "en-us"
-title = "Test v4 Blog"
+title = "kh-blog"
 theme = "hugo-theme-bootstrap4-blog"
 # number of posts to show on home/category/tag pages (Default: 10)
 paginate = 5
@@ -15,13 +15,13 @@ publishDir = "docs"
   post = "/:year/:month/:title/"
   page = "/:slug/"
 
-[[menu.sidebar]]
-  name = "Link 1"
-  url = "https://example.com"
+#[[menu.sidebar]]
+#  name = "Link 1"
+#  url = "https://example.com"
 
-[[menu.sidebar]]
-  name = "Link 2"
-  url = "https://example.org"
+#[[menu.sidebar]]
+#  name = "Link 2"
+#  url = "https://example.org"
 
 #[[menu.navbar]]
 #  name = "Link 1"
@@ -32,10 +32,10 @@ publishDir = "docs"
 #
 [params]
   # Site author
-  author = "Your Name"
+  author = "Kanji Hashimoto"
 
   # Description/subtitle for homepage (can be Markdown)
-  description = "A simple Hugo theme based on the Bootstrap v4 blog example."
+  description = "統計とかGISとかのメモ"
 
   # Show header (default: true)
   #header_visible = true
@@ -71,7 +71,7 @@ publishDir = "docs"
 
   [params.sidebar]
     # Optional about block for sidebar (can be Markdown)
-    about = "A simple Hugo theme based on the [Bootstrap v4 blog example](http://v4-alpha.getbootstrap.com/examples/blog/)."
+    #about = "A simple Hugo theme based on the [Bootstrap v4 blog example](http://v4-alpha.getbootstrap.com/examples/blog/)."
 
     # How many posts to show on the sidebar (Default: 5)
     #num_recent_posts = 2
@@ -80,7 +80,7 @@ publishDir = "docs"
     # Optional, used for attribution in Twitter cards (ideally not a person
     # for example: nytimes, flickr, NatGeo, etc).
     # See: https://dev.twitter.com/cards/types/summary-large-image
-    twitter = "username"
+    twitter = "kanji14134"
 
 # Default content language for Hugo 0.17's multilingual support (default is "en")
 # See: https://github.com/spf13/hugo/blob/master/docs/content/content/multilingual.md

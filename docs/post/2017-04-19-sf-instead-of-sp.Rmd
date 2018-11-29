@@ -7,7 +7,7 @@ draft: false
 tags:
 - GIS
 type: "post"
-title: "sf,instead of sp"
+title: "sf 3.4"
 author: "kanji14134"
 ---
 
@@ -24,7 +24,7 @@ irisに適当に座標をつけます。
 この場合はst_as_sf()で簡単に作ることができます。
 SP*オブジェクトよりもスッキリしてる気がします。
 ```{r}
-iris_sf_wgs<- iris %>% 
+iris_sf_wgs <- iris %>% 
   mutate(x = rnorm(dim(iris)[1],140,1),
          y = rnorm(dim(iris)[1],35,1)) %>% 
   st_as_sf(coords = c("x","y"),

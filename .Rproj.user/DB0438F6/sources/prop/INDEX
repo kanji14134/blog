@@ -1,4 +1,5 @@
 ~%2FDocuments%2Fblog%2F.gitignore="5597BBD6"
+~%2FDocuments%2Fblog%2F_config.yml="441257DB"
 ~%2FDocuments%2Fblog%2Fblog%2Fconfig.toml="441C201"
 ~%2FDocuments%2Fblog%2Fblog%2Fcontent%2Fpost%2F2015-07-23-r-rmarkdown.Rmd="CA848BE4"
 ~%2FDocuments%2Fblog%2Fconfig.toml="616CBFB8"
@@ -8,6 +9,7 @@
 ~%2FDocuments%2Fblog%2Fcontent%2Fpost%2F2017-04-19-sf-instead-of-sp.Rmd="A2EDB35A"
 ~%2FDocuments%2Fblog%2Fcontent%2Fpost%2F2018-11-22-test.md="669D4320"
 ~%2FDocuments%2Fblog%2Fcontent%2Fpost%2F2018-11-29-today-test-rmd.md="D930D640"
+~%2FDocuments%2Fblog%2Fcontent%2Fpost%2F_2017-01-14-homerange-estimation-1.Rmd="B57F01F"
 ~%2FDocuments%2Fblog%2Fcontent%2Fpost%2F_2017-03-23-maxent3-40.Rmd="342C8DFA"
 ~%2FDocuments%2Fblog%2Fcontent%2Fpost%2Fmigrate-from-jekyll.md="CC63410"
 ~%2FDocuments%2Fblog%2Fcontent%2Fpost%2Ftest.Rmd="BA3D828"
