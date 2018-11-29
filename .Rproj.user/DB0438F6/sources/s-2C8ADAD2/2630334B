@@ -5,15 +5,15 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "0",
+    "hash" : "2071943236",
     "id" : "2630334B",
-    "lastKnownWriteTime" : 1543494530,
-    "last_content_update" : 1543494530805,
+    "lastKnownWriteTime" : 1543494613,
+    "last_content_update" : 1543494613007,
     "path" : "~/Documents/blog/themes/hugo-theme-bootstrap4-blog/exampleSite/content/post/migrate-from-jekyll.md",
     "project_path" : "themes/hugo-theme-bootstrap4-blog/exampleSite/content/post/migrate-from-jekyll.md",
     "properties" : {
-        "cursorPosition" : "65,159",
-        "scrollLine" : "59"
+        "cursorPosition" : "60,0",
+        "scrollLine" : "52"
     },
     "read_only" : false,
     "read_only_alternatives" : [
