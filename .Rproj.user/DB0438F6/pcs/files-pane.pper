@@ -1,5 +1,5 @@
 {
-    "path" : "~/Documents/blog/themes/hugo-theme-bootstrap4-blog/exampleSite/content/post",
+    "path" : "~/Documents/blog/themes/hugo-theme-bootstrap4-blog/layouts/_default",
     "sortOrder" : [
         {
             "ascending" : true,

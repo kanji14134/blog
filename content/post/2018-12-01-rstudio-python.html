@@ -1,0 +1,34 @@
+---
+title: RStudioのコンソールでpython
+author: kanji14134
+date: '2018-12-01'
+slug: rstudio-python
+categories: []
+tags: []
+---
+
+
+
+<p>最新のRStudioではコンソール上でpythonが実行可能になりました。<br />
+まずR上で以下のコードを実行します。<br />
+ここではcondaの環境名を指定して呼び出します。</p>
+<pre class="r"><code>library(reticulate)</code></pre>
+<pre><code>## Warning: パッケージ &#39;reticulate&#39; はバージョン 3.4.4 の R の下で造られました</code></pre>
+<pre class="r"><code>use_condaenv(&#39;r-tensorflow&#39;)
+reticulate::repl_python()</code></pre>
+<pre><code>## Python 3.6.1 (/Users/kanji/anaconda/envs/r-tensorflow/bin/python)
+## Reticulate 1.10 REPL -- A Python interpreter in R.</code></pre>
+<pre><code>## exit</code></pre>
+<p>コンソールの表記が<strong>&gt;&gt;&gt;</strong>に変わったと思います。<br />
+この状態で<strong>python script(.py)</strong>ファイルから以下のコードを実行すると,<br />
+コンソールで実行されます。
+ここで誤ってRのファイルに書いたコードを実行するとpythonが終了してRに戻ってしまします。</p>
+<pre class="python"><code>import numpy as np
+a = np.array([1,-2,3.0])
+b = a*a
+print(a@b)</code></pre>
+<pre><code>## 20.0</code></pre>
+<p>オブジェクトの受け渡し等は謎です。教えて下しあ。<br />
+Rでpythonの関数を持ってきて使うのもこのパッケージでできます。
+uriさんのこの<a href="https://uribo.hatenablog.com/entry/2017/07/16/100253">ページ</a>を参考にしてください。</p>
+<p>おしまい</p>
