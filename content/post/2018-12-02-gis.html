@@ -1,0 +1,81 @@
+---
+title: GISデータ入手先一覧
+author: kanji14134
+date: '2018-12-02'
+slug: gis
+categories: [GIS]
+tags: []
+description: ''
+---
+
+
+
+<p>各機関・組織で<strong>無料で公開</strong>されているGISデータを中心に、
+研究に使えるものをあつめました。<br />
+みんなもRで地理情報データを解析しよう!!</p>
+<div class="section level3">
+<h3>基盤地図情報</h3>
+<p><a href="https://fgd.gsi.go.jp/download/menu.php">リンク</a><br />
+日本全国の(多分)地形図と同じベクターデータがXMLで提供されています。
+ただし細かく分割されていますので、全国のデータをざっと見るには適していないかもしれません。</p>
+<ul>
+<li>道路</li>
+<li>建物形状</li>
+<li>開放水域 等など</li>
+</ul>
+<p>標高データ
+- 10mメッシュ(全国)
+- 5mメッシュ(河川周辺地域)</p>
+<p>いずれも専用のGISフォーマットへの変換ツールがありますが、<br />
+Rで変換する方法をuri先生が開発して下さっております。<a href="https://uribo.hatenablog.com/entry/2018/11/19/081000">リンク</a></p>
+</div>
+<div class="section level3">
+<h3>国土数値情報</h3>
+<p><a href="http://nlftp.mlit.go.jp/ksj/">リンク</a></p>
+<ul>
+<li>平年値気象メッシュ</li>
+<li>市区町村区域</li>
+<li>土地利用</li>
+<li>公共施設位置</li>
+<li>自然公園地域 等</li>
+</ul>
+<p>ESRI Shapefile形式で提供されるデータです。<br />
+とりあえずここのデータを眺めると目当てのものが見つかります。<br />
+こちらはR上でデータ取得までできてしまうRパッケージがyutani先生より公開されております。(リンク)[<a href="https://github.com/yutannihilation/kokudosuuchi" class="uri">https://github.com/yutannihilation/kokudosuuchi</a>]</p>
+</div>
+<div class="section level3">
+<h3>植生図</h3>
+<p><a href="http://gis.biodic.go.jp/webgis/sc-023.html">リンク</a></p>
+<p>植生のGISデータがESRI Shapefile形式で提供されています。<br />
+航空写真判読と現地調査をもとに、森林や草地の植生が細かく分けられています。</p>
+</div>
+<div class="section level3">
+<h3>土地保全図</h3>
+<p><a href="http://nrb-www.mlit.go.jp/kokjo/inspect/landclassification/download/index.html">リンク</a></p>
+<ul>
+<li>地形分類図</li>
+<li>土壌図</li>
+<li>地質図</li>
+</ul>
+<p>ここではおおまかな地質図などを手に入れることができます。</p>
+</div>
+<div class="section level3">
+<h3>海外</h3>
+<p><a href="http://www.diva-gis.org/gdata">リンク</a><br />
+海外のデータをざっと見るにはこちらがおすすめです。
+DIVA-GISというOSSのページになります。</p>
+<ul>
+<li>行政区画</li>
+<li>人口</li>
+<li>河川</li>
+<li>道路等</li>
+</ul>
+</div>
+<div id="openstreetmap" class="section level3">
+<h3>OpenStreetMap</h3>
+<p><a href="https://www.openstreetmap.org/">リンク</a>
+OpenStreetMapはご存知でしょうか?<strong>leaflet</strong>の背景になっていたりする、<br />
+オープンなGISデータです。もちろんダウンロードすることもできます。<br />
+ログインしてExportを押せば、表示地域のデータが、OSMファイルとしてダウンロードできます。<br />
+このデータはGDALで変換できます。</p>
+</div>

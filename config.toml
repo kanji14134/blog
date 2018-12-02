@@ -1,5 +1,6 @@
 # Hugo variables
 #
+GoogleAnalytics = "UA-130238507-1"
 hasCJKLanguage = true
 baseurl = "https://kanji14134.github.io/blog/"
 languageCode = "ja-jp"
