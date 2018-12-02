@@ -24,6 +24,7 @@ description: ''
 - 開放水域 等など
 
 標高データ
+
 - 10mメッシュ(全国)
 - 5mメッシュ(河川周辺地域)
 
@@ -41,7 +42,7 @@ Rで変換する方法をuri先生が開発して下さっております。[リ
 
 ESRI Shapefile形式で提供されるデータです。  
 とりあえずここのデータを眺めると目当てのものが見つかります。  
-こちらはR上でデータ取得までできてしまうRパッケージがyutani先生より公開されております。(リンク)[https://github.com/yutannihilation/kokudosuuchi]
+こちらはR上でデータ取得までできてしまうRパッケージがyutani先生より公開されております。[リンク](https://github.com/yutannihilation/kokudosuuchi)
 
 ### 植生図
 [リンク](http://gis.biodic.go.jp/webgis/sc-023.html)
