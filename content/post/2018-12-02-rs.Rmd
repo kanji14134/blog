@@ -1,0 +1,50 @@
+---
+title: 衛星画像入手先一覧
+author: kanji14134
+date: '2018-12-02'
+slug: rs
+categories: [GIS]
+tags: []
+description: ''
+---
+
+各機関・組織で**無料で公開**されている衛星画像データを中心に、
+研究に使えるものをあつめました。  
+みんなもRで衛星画像データを解析しよう!!  
+
+**随時更新予定**
+
+### AIST即時公開サービス
+ページがみれない…
+
+### USGS EarthExploler
+[リンク](https://earthexplorer.usgs.gov/)
+
+アメリカUSGSが運営するサイト。
+無料でLandsat衛星の画像やSRTMの全球の高さ(楕円体高)がダウンロードできます。
+
+Landsat8の地上解像度は30m。  
+
+楕円体高と標高の関係はwingfield先生のページ[リンク](https://www.wingfield.gr.jp/blog/2018/10/08/p9188/)を御覧ください。
+
+### ESA Copernicus Open Access Hub
+[リンク](https://scihub.copernicus.eu/)  
+以前はscihubという名前だった気がしますが、欧州宇宙機関の由緒正しいサイトです。  
+Sentinelという衛星のダウンロードができます。
+
+Sentinel1は合成開口レーダー(SAR)というせんさーのものです。
+HH,HV,VVといったデータが格納されてます。
+縦波・横波などのちょっとむずかしいお話なので詳しくはググってください。
+
+Sentinel2は光学衛星で、地上解像度は10m
+
+### JASMES
+[リンク](https://www.eorc.jaxa.jp/JASMES/index_map_j.html)  
+データ取得のページから登録すると、ダウンロード専用ページが開きます。  
+そちらのページはリンク先よりスッキリしてますのでご安心ください。  
+日本付近/全球規模の積雪や海域の情報を入手できます。  
+
+
+関連ページ  
+[GISデータ入手先](./gis%E3%83%87%E3%83%BC%E3%82%BF%E5%85%A5%E6%89%8B%E5%85%88%E4%B8%80%E8%A6%A7/)
+
