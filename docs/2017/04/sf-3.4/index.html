@@ -140,7 +140,7 @@ iris_sf_wgs %&gt;%
 <pre><code>## Simple feature collection with 6 features and 5 fields
 ## geometry type:  POINT
 ## dimension:      XY
-## bbox:           xmin: 138.4912 ymin: 33.40316 xmax: 140.6649 ymax: 35.10717
+## bbox:           xmin: 139.9014 ymin: 33.78256 xmax: 141.0689 ymax: 36.03225
 ## epsg (SRID):    4326
 ## proj4string:    +proj=longlat +datum=WGS84 +no_defs
 ##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
@@ -151,12 +151,12 @@ iris_sf_wgs %&gt;%
 ## 5          5.0         3.6          1.4         0.2  setosa
 ## 6          5.4         3.9          1.7         0.4  setosa
 ##                    geometry
-## 1 POINT (138.4912 34.18181)
-## 2 POINT (139.7842 35.10717)
-## 3 POINT (139.7723 33.40316)
-## 4 POINT (140.6649 34.80533)
-## 5 POINT (140.5426 33.52099)
-## 6 POINT (138.5337 34.84963)</code></pre>
+## 1 POINT (139.9014 36.03225)
+## 2  POINT (140.7714 35.4193)
+## 3  POINT (140.8326 34.3408)
+## 4 POINT (141.0689 35.92047)
+## 5 POINT (140.3208 33.78256)
+## 6 POINT (140.4534 34.96536)</code></pre>
 <p>geometryに座標が入りました。postGISみたいなやつですね。
 投影変換はst_transformです。crsに直接EPSGコードをぶち込めます。</p>
 <pre class="r"><code>iris_sf_wgs %&gt;% 
@@ -165,7 +165,7 @@ iris_sf_wgs %&gt;%
 <pre><code>## Simple feature collection with 6 features and 5 fields
 ## geometry type:  POINT
 ## dimension:      XY
-## bbox:           xmin: 268786.5 ymin: 3696656 xmax: 469348 ymax: 3885604
+## bbox:           xmin: 401023.8 ymin: 3738254 xmax: 506214.9 ymax: 3988083
 ## epsg (SRID):    32654
 ## proj4string:    +proj=utm +zone=54 +datum=WGS84 +units=m +no_defs
 ##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
@@ -176,12 +176,12 @@ iris_sf_wgs %&gt;%
 ## 5          5.0         3.6          1.4         0.2  setosa
 ## 6          5.4         3.9          1.7         0.4  setosa
 ##                   geometry
-## 1 POINT (268786.5 3785160)
-## 2 POINT (389197.1 3885604)
-## 3 POINT (385830.3 3696656)
-## 4   POINT (469348 3851506)
-## 5 POINT (457521.5 3709140)
-## 6 POINT (274509.3 3859142)</code></pre>
+## 1 POINT (401023.8 3988083)
+## 2 POINT (479246.7 3919567)
+## 3 POINT (484604.7 3799957)
+## 4 POINT (506214.9 3975129)
+## 5 POINT (437113.5 3738254)
+## 6 POINT (450099.3 3869338)</code></pre>
 <p>plotでの描画はこの通り。</p>
 <pre class="r"><code>plot(iris_sf_wgs %&gt;% select(Species))</code></pre>
 <p><img src="../../../post/2017-04-19-sf-instead-of-sp_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
@@ -232,15 +232,15 @@ iris_sf_wgs %&gt;%
     <ol class="list-unstyled">
 
 
+<li><a href="../../../2018/12/r%E3%81%AB%E3%82%88%E3%82%8B%E5%9C%B0%E7%90%86%E7%A9%BA%E9%96%93%E3%83%87%E3%83%BC%E3%82%BF%E5%88%86%E6%9E%90%E5%85%A5%E9%96%80%E3%82%92%E9%A0%82%E3%81%8D%E3%81%BE%E3%81%97%E3%81%9F/">「Rによる地理空間データ分析入門」を頂きました</a></li>
+
 <li><a href="../../../2018/12/gis%E3%83%87%E3%83%BC%E3%82%BF%E5%85%A5%E6%89%8B%E5%85%88%E4%B8%80%E8%A6%A7/">GISデータ入手先一覧</a></li>
+
+<li><a href="../../../2018/12/package%E3%82%92%E3%81%A4%E3%81%8F%E3%82%8A%E3%81%9F%E3%81%84-%E5%A7%8B%E5%8B%95%E7%B7%A8/">packageをつくりたい 始動編</a></li>
 
 <li><a href="../../../2018/12/%E8%A1%9B%E6%98%9F%E7%94%BB%E5%83%8F%E5%85%A5%E6%89%8B%E5%85%88%E4%B8%80%E8%A6%A7/">衛星画像入手先一覧</a></li>
 
 <li><a href="../../../2018/12/rstudio%E3%81%AE%E3%82%B3%E3%83%B3%E3%82%BD%E3%83%BC%E3%83%AB%E3%81%A7python/">RStudioのコンソールでpython</a></li>
-
-<li><a href="../../../2017/04/sf-3.4/">sf 3.4</a></li>
-
-<li><a href="../../../2017/03/maxent-3.40/">Maxent 3.40</a></li>
 
     </ol>
   </section>

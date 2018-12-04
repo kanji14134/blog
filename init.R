@@ -1,5 +1,5 @@
 library(blogdown)
 new_site(theme="alanorth/hugo-theme-bootstrap4-blog")
 serve_site()
-new_content('post_test.Rmd')
-new_post('today_test.Rmd')
+# new_content('post_test.Rmd')
+# new_post('today_test.Rmd')

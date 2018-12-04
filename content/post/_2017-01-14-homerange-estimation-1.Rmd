@@ -7,11 +7,9 @@ draft: TRUE
 tags:
 - ecology
 - homerange
-title: "homerange_1"
+title: "homerange"
 author: "kanji14134"
 ---
-
-###これは下書きです。
 
 野生動物の研究ではしばしば位置情報を観察、VHF発信機、GPS首輪などから取得してなんかします。
 行動圏と言われるものを推定したりです。

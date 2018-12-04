@@ -36,7 +36,7 @@ relativeurls = true
 #
 
 [params]
-  summaryLength = 10
+  summaryLength = 14
   
   # Site author
   author = "Kanji Hashimoto"

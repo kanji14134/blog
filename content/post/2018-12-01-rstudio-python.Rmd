@@ -3,7 +3,7 @@ title: RStudioのコンソールでpython
 author: kanji14134
 date: '2018-12-01'
 slug: rstudio-python
-categories: []
+categories: [R,python]
 tags: []
 ---
 

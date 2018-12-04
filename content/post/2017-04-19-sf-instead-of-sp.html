@@ -44,7 +44,7 @@ iris_sf_wgs %&gt;%
 <pre><code>## Simple feature collection with 6 features and 5 fields
 ## geometry type:  POINT
 ## dimension:      XY
-## bbox:           xmin: 138.4912 ymin: 33.40316 xmax: 140.6649 ymax: 35.10717
+## bbox:           xmin: 139.9014 ymin: 33.78256 xmax: 141.0689 ymax: 36.03225
 ## epsg (SRID):    4326
 ## proj4string:    +proj=longlat +datum=WGS84 +no_defs
 ##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
@@ -55,12 +55,12 @@ iris_sf_wgs %&gt;%
 ## 5          5.0         3.6          1.4         0.2  setosa
 ## 6          5.4         3.9          1.7         0.4  setosa
 ##                    geometry
-## 1 POINT (138.4912 34.18181)
-## 2 POINT (139.7842 35.10717)
-## 3 POINT (139.7723 33.40316)
-## 4 POINT (140.6649 34.80533)
-## 5 POINT (140.5426 33.52099)
-## 6 POINT (138.5337 34.84963)</code></pre>
+## 1 POINT (139.9014 36.03225)
+## 2  POINT (140.7714 35.4193)
+## 3  POINT (140.8326 34.3408)
+## 4 POINT (141.0689 35.92047)
+## 5 POINT (140.3208 33.78256)
+## 6 POINT (140.4534 34.96536)</code></pre>
 <p>geometryに座標が入りました。postGISみたいなやつですね。
 投影変換はst_transformです。crsに直接EPSGコードをぶち込めます。</p>
 <pre class="r"><code>iris_sf_wgs %&gt;% 
@@ -69,7 +69,7 @@ iris_sf_wgs %&gt;%
 <pre><code>## Simple feature collection with 6 features and 5 fields
 ## geometry type:  POINT
 ## dimension:      XY
-## bbox:           xmin: 268786.5 ymin: 3696656 xmax: 469348 ymax: 3885604
+## bbox:           xmin: 401023.8 ymin: 3738254 xmax: 506214.9 ymax: 3988083
 ## epsg (SRID):    32654
 ## proj4string:    +proj=utm +zone=54 +datum=WGS84 +units=m +no_defs
 ##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
@@ -80,12 +80,12 @@ iris_sf_wgs %&gt;%
 ## 5          5.0         3.6          1.4         0.2  setosa
 ## 6          5.4         3.9          1.7         0.4  setosa
 ##                   geometry
-## 1 POINT (268786.5 3785160)
-## 2 POINT (389197.1 3885604)
-## 3 POINT (385830.3 3696656)
-## 4   POINT (469348 3851506)
-## 5 POINT (457521.5 3709140)
-## 6 POINT (274509.3 3859142)</code></pre>
+## 1 POINT (401023.8 3988083)
+## 2 POINT (479246.7 3919567)
+## 3 POINT (484604.7 3799957)
+## 4 POINT (506214.9 3975129)
+## 5 POINT (437113.5 3738254)
+## 6 POINT (450099.3 3869338)</code></pre>
 <p>plotでの描画はこの通り。</p>
 <pre class="r"><code>plot(iris_sf_wgs %&gt;% select(Species))</code></pre>
 <p><img src="/post/2017-04-19-sf-instead-of-sp_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>

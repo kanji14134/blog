@@ -1,0 +1,18 @@
+---
+title: 「Rによる地理空間データ分析入門」を頂きました
+author: kanji14134
+date: '2018-12-04'
+slug: r-geospatial-data
+categories:
+  - R
+  - GIS
+tags: []
+description: ''
+draft: true
+---
+
+<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">訳者の方にご恵贈賜りました。ありがとうございます😊 <a href="https://t.co/HSpMZSHCAS">pic.twitter.com/HSpMZSHCAS</a></p>&mdash; けいえち (@kanji14134) <a href="https://twitter.com/kanji14134/status/1066857004780609536?ref_src=twsrc%5Etfw">2018年11月26日</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+「Rによる地理空間データ分析入門」を頂きました!!
