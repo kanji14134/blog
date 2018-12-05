@@ -6,7 +6,7 @@ slug: package
 categories: [R]
 tags: []
 description: ''
-draft: yes
+draft: true
 ---
 
 (社内)packageをつくりたい。  
